@@ -1,0 +1,44 @@
+
+
+
+@media (max-width:600px){
+    .customer_login, .agent_login, .agent_crs_login{
+        display: none;
+    }
+    .success-box{
+        height: calc( 100vh - 122px);
+    }
+}
+.feedback_form{
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.input-group-text{
+    width: 168px !important;
+}
+.cus-content{
+    max-width: 1300px;
+    margin: auto;
+}
+.navbar{
+    border-bottom: 1px solid #d3d9df;
+}
+
+.input-group{
+    margin-top:10px;
+}
+.success-box{
+    position: absolute;
+    z-index: 99999;
+    background-color:#F8F9FA;
+    width: calc(100% - 40px);
+    min-height: 430px;
+}
+@media(min-width:600px){
+    .success-box{
+        height: calc( 100vh - 146px);
+    }
+}

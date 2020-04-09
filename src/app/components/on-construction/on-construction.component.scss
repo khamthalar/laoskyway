@@ -1,0 +1,25 @@
+.label{
+    text-align: center;
+    color: rgb(247, 183, 7);
+    margin-top: 30px;
+}
+.label-text{
+    padding:15px 25px;
+    border: 2px solid rgb(247, 183, 7);
+    font-size:3vw;
+
+}
+.label-text-2{
+    padding:15px 25px;
+    font-size:3vw;
+}
+.main-img{
+    padding-top: 50px;
+    text-align: center;
+}
+
+@media(max-width:750px){
+    .img-content{
+        width: calc(100% - 10px) !important;
+    }
+}

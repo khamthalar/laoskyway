@@ -1,0 +1,123 @@
+<div appMain id="app">
+  <div class="header-top">
+    <div class="header-top-content">
+      <a class="check-mail-btn agent-login" href="https://book.laoskyway.com/Sitelogin.aspx" target="_blank"><button
+          mat-button style="color: black;">
+          <img src="assets/svg/officer.svg" width="30"> Agent Login</button></a>
+      <a class="check-mail-btn" href="https://sgssr1.supercp.com:2096" target="_blank"><button mat-button
+          style="color: black;">
+          <img src="assets/svg/email.svg" width="30"> Check Mail</button></a>
+      <button class="btn-language" mat-button [matMenuTriggerFor]="beforeMenu">
+        <span *ngIf="isEnglish"><img src="assets/svg/eng.svg" width="30"> English</span>
+        <span *ngIf="!isEnglish"><img src="assets/svg/laos.svg" width="30"> Lao</span>
+      </button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button class="btn-language-menu" mat-menu-item>
+          <img src="assets/svg/laos.svg" width="30"> Lao
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="header-bottom">
+    <div class="content-border">
+
+      <!--Navbar-->
+      <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark header-bottom-content" [containerInside]="false">
+
+
+        <!-- Navbar brand -->
+        <mdb-navbar-brand><a class="navbar-brand" href="https://laoskyway.com/">
+            <div class="header-logo">
+              <img src="assets/imgs/lsw-logo.png" width="250" class="home-logo">
+            </div>
+          </a></mdb-navbar-brand>
+
+        <!-- Collapsible content -->
+        <links>
+
+          <!-- Links -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                mdbWavesEffect>
+                SERVICES<span class="caret"></span>
+              </a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">SCENIC FLIGHT</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">CHARTER FLIGHT</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/route_map">AIRLINE (ROUTE MAP)</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="https://www.laoskywayhotel.com/XKH/" target="_blank">LAOSKYWAY
+                  HOTEL XKH</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="http://laoskywayhotel.com/" target="_blank">LAOSKYWAY HOTEL
+                  VTE</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="https://laoskywaytravel.com/" target="_blank">LAOSKYWAY
+                  TRAVEL</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/cargo_check">CARGO TRACKING</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                mdbWavesEffect>
+                SKY CARD<span class="caret"></span>
+              </a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#">SKY CARD PARTNER</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect
+                  href="https://book.laoskyway.com/UserProfileRegistration.aspx?lang=en&sesid=" target="_blank">SKY CARD REGISTER</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                mdbWavesEffect>
+                DESTINATIONS<span class="caret"></span>
+              </a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">VIENTIANE</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">LAUNGPRABANG</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">BORKEO</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">OUDOMXAY</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">LUANGNAMTHA</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">HOUAPHAN</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect href="/on-construction">
+                FLIGHTS CHEDULE
+              </a>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                mdbWavesEffect>
+                ABOUT US<span class="caret"></span>
+              </a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/about-us-laoskyway">LAOSKYWAY</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/org_chart">ORGANIZATION CHART</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">GENERAL TERMS AND
+                  CONDITION</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/about-us-FleetInfo">FLEET INFOMATION</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">VIDEOS</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">NEWS</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/contact_us">CONTACT US</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">ACTIVITIES & PHOTO</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect href="/feedback">
+                FEED BACK
+              </a>
+            </li>
+
+          </ul>
+          <!-- Links -->
+        </links>
+        <!-- Collapsible content -->
+
+      </mdb-navbar>
+      <!--/.Navbar-->
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+  <app-footer class="main-footer"></app-footer>
+</div>

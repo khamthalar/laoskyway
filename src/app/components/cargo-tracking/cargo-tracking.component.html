@@ -1,0 +1,48 @@
+<section id=cargo_check class="section">
+    <div class="header">
+        <div class="search-box">
+            <!-- [(ngModel)]="tracking_id" -->
+            <input [(ngModel)]="tracking_id" (keydown)="onKey($event)" class="txtTrackingID none-outline" type="text" maxlength="8" name="txtTrackingID" placeholder="TRACKING-ID:">
+            <button class="btn-search none-outline" (click)="getdata()"></button>
+        </div>
+    </div>
+    <div class="body">
+        <!-- <pre>{{result | json}}</pre> -->
+        <div class="loading-frame">
+            <div class="loader" [hidden]="!isLoading"></div>
+        </div>
+        <div class="error" [hidden]="hidden_error">
+            <div class="error_ico" id="error_ico" [ngClass]="{error_data: error_detail=='error', null_data: error_detail=='null'}"></div>
+            <div class="error-text">{{error_text}}</div>
+        </div>
+        <div class="tracking_detail" [hidden]="hidden_tracking_detail">
+            <div>ເລກທີໃບບິນ(AIRWAY BILL)</div>
+            <div>{{result.bill_no}}</div>
+            <div>ວັນທີຝາກເຄື່ອງ(CARGO DATE)</div>
+            <div>{{result.action_date}}</div>
+            <div>ພະນັກງານຮັບເຄື່ອງຝາກ(SATFF)</div>
+            <div>{{result.staff}}</div>
+            <div>ເສັ້ນບິນ(ROUTE)</div>
+            <div>{{result.route}}</div>
+            <div>ຜູ້ຝາກເຄື່ອງ(FROM)</div>
+            <div>{{result.from}}</div>
+            <div>ຜູ້ຮັບເຄີ່ອງ(RECIVER)</div>
+            <div>{{result.to}}</div>
+            <div>ຈຳນວນຊິ້ນ(PIECES)</div>
+            <div>{{result.nop}}</div>
+            <div>ລວມນ້ຳໜັກ(TOTAL WEIGHT)</div>
+            <div>{{result.weight}}</div>
+            <div>ສະຖານະເຄື່ອງຝາກ(STATUS)</div>
+            <div [ngClass]="{color1: result.color==1, color2: result.color==2, color3: result.color==3}">
+                {{result.img_st}}</div>
+            <div>ໝາຍເຫດ(REMARK)</div>
+            <div>{{result.remark}}</div>
+        </div>
+        <div class="tracking-placeholder" [hidden]="hidden">
+            <img src="/assets/svg/arrow-top.svg" style="width: 30px;">
+            <div style="text-align: center;">Please enter the Tracking ID<br>to check your cargo status</div>
+        </div>
+    </div>
+    
+
+</section>

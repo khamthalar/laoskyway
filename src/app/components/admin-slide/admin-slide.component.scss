@@ -1,0 +1,61 @@
+.admin-slide-content{
+    padding: 20px;
+}
+.btn-new-slide{
+    padding: 4px 20px;
+    color: white;
+    background-color: rgb(0, 110, 255);
+    border: none;
+    border-radius: 5px;
+}
+.form-slide-list{
+    margin-top: 10px;
+}
+.button{
+    float: left;
+    padding: 3px 12px;
+}
+.ico{
+    font-size: 40px !important;
+    cursor: pointer;
+}
+.newImg{
+    color:rgb(0, 110, 255);
+}
+.del{
+    color: red;
+}
+.save{
+    color: green;
+}
+#upload_img, #new_upload_img, .slidelist-img{
+    max-height: 100%;
+}
+
+.slide-item{
+    height: 200px;
+    border: 1px dotted red;
+}
+.button-group{
+    width: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.slide-img{
+    float: left; 
+    height: 198px;
+    width: 500px;
+    border-right:1px dotted lightgray;
+}
+.slide-item-detail{
+    height: 100%;
+    float: left; 
+    padding:10px;
+    position: relative;
+}
+
+.disable-btn{
+    color: rgb(158, 158, 158) !important;
+    cursor: default;
+}

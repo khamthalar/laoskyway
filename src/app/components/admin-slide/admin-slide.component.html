@@ -1,0 +1,70 @@
+<div class="admin-slide-content">
+    <button class="btn-new-slide" (click)="new_item=true">
+        <mat-icon style="float: left;">add</mat-icon>
+        <div style="float: left;padding-left: 3px; padding-top: 3px; padding-bottom: 5px; font-size: 18px;">Add</div>
+    </button>
+    <div class="form-slide-list">
+        
+        <div class="slide-item new-item" *ngIf="new_item==true">
+            <div class="slide-img">
+                <img (click)="addNewImg()" id="new_upload_img">
+            </div>
+            <div class="slide-item-detail">
+                size: {{newImg_size}} <br> 
+                name: {{newImg_name}} <br> 
+                <!-- last update: 2 jun 2020 <br>
+                update by: administrator -->
+
+                <div class="button-group">
+                    <div class="button">
+                        <input type="file" id="newImg" name="fileUpload" style="display:none;"
+                            accept="image/png, image/jpeg" />
+                        <mat-icon class="ico newImg" (click)="addNewImg()">add_photo_alternate</mat-icon>
+                    </div>
+                    <!-- <div class="button">
+                        <mat-icon class="ico del">delete</mat-icon>
+                    </div> -->
+                    <div class="button">
+                        <mat-icon class="ico save" (click)="save_item()" [ngClass]="{'disable-btn': disable_save_btn}">save</mat-icon>
+                    </div>
+                    <div class="button">
+                        <mat-icon class="ico del" (click)="cancel_item()">cancel</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <pre>{{ slide_data | json }}</pre> -->
+
+        <div class="slide-item" *ngFor="let item of slide_data; let i = index">
+            <div class="slide-img">
+                <img id="img{{item.id}}" src="{{item.img_path}}" class="slidelist-img">
+            </div>
+            <div class="slide-item-detail">
+                size: {{(item.img_size/(1024 * 1024)).toFixed(2)}} MB<br> 
+                scale: {{item.img_scale}} <br>
+                name: {{item.img_name}} <br> 
+                last update: {{item.last_update | date:'dd MMM yyyy hh:mm a'}} <br>
+                update by: {{item.update_user}}
+
+                <div class="button-group">
+                    <div class="button">
+                        <input type="file" id="fileUpload{{item.id}}" name="fileUpload{{item.id}}" style="display:none;"
+                            accept="image/png, image/jpeg" />
+                        <mat-icon class="ico newImg" (click)="select_img(item.id,item.id,i)">add_photo_alternate</mat-icon>
+                    </div>
+                    <div class="button">
+                        <mat-icon class="ico del" (click)="delete_silde(item.id, item.img_old)">delete</mat-icon>
+                    </div>
+                    <div class="button">
+                        <mat-icon class="ico save" [ngClass]="{'disable-btn': item.disable_save}" (click)="update_item(item.upload_file, item.id, item.img_old)">save</mat-icon>
+                    </div>
+                    <div class="button" [hidden]="item.disable_save">
+                        <mat-icon class="ico del" (click)="cancel_update()">cancel</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

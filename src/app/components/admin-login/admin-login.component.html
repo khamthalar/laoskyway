@@ -1,0 +1,21 @@
+<div class="login-form">
+    <div class="login-content">
+        <div class="login-img">
+            <img src="/assets/imgs/lsw-logo.png" width="250">
+        </div>
+        <div class="username">
+            <img src="/assets/svg/user.svg" width="25" class="ico">
+            <input type="text" class="txtusername none-outline" [(ngModel)]="username">
+        </div>
+        <div class="user-password">
+            <img src="/assets/svg/padlock.svg" width="25" class="ico">
+            <input type="password" class="txtpassword none-outline" [(ngModel)]="password">
+        </div>
+        <div class="submit">
+            <button class="btnsubmit none-outline" (click)="onLogin()">Login</button>
+        </div>
+        <div class="footer-label">
+            admin login
+        </div>
+    </div>
+</div>

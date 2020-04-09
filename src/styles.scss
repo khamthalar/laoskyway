@@ -1,0 +1,212 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+// .main-footer{
+//     position: absolute;
+//     bottom: 0;
+//     width: 100%;
+// }
+.navbar{
+    box-shadow: none !important;
+}
+.navbar.navbar-dark .navbar-nav .nav-item .nav-link{
+    color: #646666 !important;
+}
+.navbar.navbar-dark .navbar-toggler-icon {
+    background-image: url(assets/svg/menu-button.svg) !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-form-field .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix .mat-select-trigger .mat-select-arrow-wrapper .mat-select-arrow{
+    border-top: none !important;
+}
+.mat-form-field .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline,
+.mat-form-field-appearance-legacy .mat-form-field-ripple{
+    height: 0 !important;
+}
+.mat-form-field .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix .mat-input-element{
+    height: 40px !important;
+}
+.mat-form-field .mat-form-field-wrapper{
+    padding-bottom: 5px !important;
+}
+.mat-form-field .mat-form-field-wrapper .mat-form-field-flex{
+    position: relative !important;
+}
+.mat-form-field .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-suffix{
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 9999;
+    display: flex;
+    align-items: stretch;
+
+}
+.mat-form-field .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-suffix .mat-datepicker-toggle{
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+.mat-form-field .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-suffix .mat-datepicker-toggle .mat-icon-button{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    text-align: right;
+    font-size: 20px;
+    padding-right: 15px;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select:none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    outline: none !important;
+}
+.ias-search-widget .col-start, .ias-search-widget .col-end{
+    width: auto !important;
+}
+.ias-search-widget .calendar{
+    width: auto !important;
+}
+@media (max-width: 480px) {
+    .flight-search-widget {
+      width: 100%;
+    }
+  }
+
+  .flight-search-widget {
+    width: 400px;
+  }
+@media(max-width:992px){
+    .header-bottom-content .navbar-collapse links .navbar-nav{
+        margin-bottom: 30px !important;
+    }
+}
+.ias-search-widget{
+    background-color: #FF2500;
+    padding-bottom: 15px !important;
+    overflow: auto;
+    border-radius: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.book-form app-book-form .container .flight-search-widget .ias-search-widget
+form .airportSelection .departureAirport label, 
+.book-form app-book-form .container .flight-search-widget .ias-search-widget
+form .airportSelection .arrivalAirport label,
+.book-form app-book-form .container .flight-search-widget .ias-search-widget
+form .dateSelection label
+{
+    display: none !important;
+}
+.book-form app-book-form .container .flight-search-widget .ias-search-widget
+form .currenciesSelection{
+    width: 50% !important;
+    float: left !important;
+}
+.book-form app-book-form .container .flight-search-widget .ias-search-widget
+form .promocodeField{
+    width: 50% !important;
+    float: left !important;
+}
+.book-form app-book-form .container .flight-search-widget .ias-search-widget
+form .formSubmit button{
+    margin-top: 10px;
+}
+
+.book-form .form-content .container{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+}
+
+// airport section
+
+.book-form app-book-form .container{
+    position: relative !important;
+}
+.book-form app-book-form .container .flight-search-widget .ias-search-widget
+form .airportSelection .departureAirport .react-autosuggest__container .react-autosuggest__suggestions-container[style]{
+    position: absolute !important;
+    top: 18px !important;
+    left: 400px !important;
+    border-radius: 6px;
+    background-color: rgba($color: #ffffff, $alpha: 0.9);
+}
+.book-form app-book-form .container .flight-search-widget .ias-search-widget
+form .airportSelection .arrivalAirport .react-autosuggest__container .react-autosuggest__suggestions-container[style]{
+    position: absolute !important;
+    top: 95px !important;
+    left: 400px !important;
+    border-radius: 6px;
+    background-color: rgba($color: #ffffff, $alpha: 0.9);
+}
+
+.ias-search-widget .calendar-window[style]{
+    position: absolute !important;
+    top: 158px !important;
+    left: 400px !important;
+}
+// end airport section
+
+
+@media(max-width:1000px){
+    .flight-search-widget{
+        margin: auto;
+    }
+    // .book-form app-book-form .container{
+    //     position: static !important;
+    // }
+    // .book-form app-book-form .container .flight-search-widget .ias-search-widget{
+    //     position: relative !important;
+    // }
+    .book-form app-book-form .container .flight-search-widget .ias-search-widget
+    form .airportSelection .departureAirport .react-autosuggest__container .react-autosuggest__suggestions-container[style]{
+        top: 63px !important;
+        left: calc((100% - 320px) / 2) !important;
+        background-color: rgba($color: #f7d579, $alpha: 0.9);
+    }
+    .book-form app-book-form .container .flight-search-widget .ias-search-widget
+    form .airportSelection .arrivalAirport .react-autosuggest__container .react-autosuggest__suggestions-container[style]{
+        top: 141px !important;
+        left: calc((100% - 320px) / 2) !important;
+        background-color: rgba($color: #f7d579, $alpha: 0.9);
+    }
+    
+}
+@media (min-width:700px) and (max-width:1000px){
+    .ias-search-widget .calendar-window[style]{
+        top: 208px !important;
+        left: calc((100% - 685.38px) / 2) !important;
+    }
+}
+@media (min-width:1000px) and (max-width:1090px){
+    .ias-search-widget .calendar-window[style]{
+        top: 208px !important;
+        left: 30px !important;
+    }
+}
+@media(max-width:700px){
+    .ias-search-widget .calendar-window[style]{
+        display: block !important;
+        top: -130px !important;
+        left: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: auto !important;
+        background-color: rgba($color: #ffffff, $alpha:1.0);
+    }
+}
+@media(max-width:520px){
+    .flight-search-widget{
+        width: 100% !important;
+    }
+}

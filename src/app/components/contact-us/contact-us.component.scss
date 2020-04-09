@@ -1,0 +1,40 @@
+
+agm-map{
+    height: 300px;
+}
+.direction{
+    width: fit-content;
+    border: 1px solid rgb(209, 2, 2);
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    &:hover{
+        background-color: rgb(209, 2, 2);
+        a{
+            color: white !important;
+        }
+    }
+}
+.call-center{
+    padding-top: 15px; 
+    font-size: 30px; 
+    padding: 10px 20px;
+    color: white;
+    background-color: rgb(209, 2, 2);
+    margin-top: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
+#contact-us{
+    max-width: 1300px;
+    margin: auto;
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .item{
+        padding: 15px;
+    }
+}

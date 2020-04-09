@@ -1,0 +1,53 @@
+<div class="feedback_form">
+    <div class="success-box" [hidden]="successMeaasge">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>ສົ່ງຄໍາຄິດເຫັນສໍາເລັດ!</strong> ຂອບໃຈທ່ານທີ່ສົ່ງຄໍາຄິດເຫັນຫາພວກເຮົາ, ພວກເຮົາຈະນໍາຄໍາຄິດເຫັນຂອງທ່ານໄປປັງປຸງ ແລະ ແກ້ໄຂໃຫ້ດີຂື້ນ
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <h4>Please use this form to send us your feedback:</h4>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Name and surname</span>
+      </div>
+      <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="txtname">
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon2">Email</span>
+      </div>
+      <input [(ngModel)]="txtemail" type="email" class="form-control" aria-describedby="basic-addon2" placeholder="example@email.com">
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Feedback Type</span>
+      </div>
+      <select name="feedback_type" class="custom-select" aria-describedby="basic-addon3" [(ngModel)]="cbfeedback_type">
+        <option value="">Choose...</option>
+        <option value="feedback">Feedback</option>
+        <option value="ask">Ask for enquiry</option>
+        <option value="other">Other...</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon4">Title</span>
+      </div>
+      <input type="text" class="form-control" aria-describedby="basic-addon4" [(ngModel)]="txttitle">
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon5">Message</span>
+      </div>
+      <textarea class="form-control" aria-describedby="basic-addon5" rows="4" [(ngModel)]="txtmessage"></textarea>
+    </div>
+    <div class="input-group">
+      <div style="width: 100%; text-align: center;">
+        <button type="submit" class="btn btn-primary" style="padding-left: 40px; padding-right: 40px;" [innerHTML]="btn_status" [disabled]="button_disabled">
+        </button>
+      </div>
+    </div>
+
+  </div>

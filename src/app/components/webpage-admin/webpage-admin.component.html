@@ -1,0 +1,48 @@
+<div class="page_admin">
+    <app-loading class="loading" [hidden]="!isLoading"></app-loading>
+    <app-admin-login class="login" (loading)="setloading($event)" (isLogin)="isLogin_status($event)" [hidden]="isLogin"></app-admin-login>
+
+    <div class="admin-container">
+        <mat-sidenav-container class="admin-sidenav-container" autosize>
+            <mat-sidenav #sidenav class="admin-sidenav" mode="side" opened="true">
+                
+                <mat-nav-list class="dashboard">
+                    <a mat-list-item (click)="toggleActive($event)">
+                        <mat-icon mat-list-icon class="user-icon">account_circle</mat-icon>
+                        <p style="margin-left: -16px; text-transform:uppercase;" matLine *ngIf="isExpanded">{{user_name}}</p>
+                    </a>
+
+                    <mat-divider></mat-divider>
+
+                    <a mat-list-item (click)="menu_option=1; title='Slide Show'">
+                        <mat-icon mat-list-icon >perm_media</mat-icon>
+                        <p matLine *ngIf="isExpanded">Home slide show</p>
+                    </a>
+                    <a mat-list-item (click)="menu_option=2; title='Job Vacancy'">
+                        <mat-icon mat-list-icon>card_travel</mat-icon>
+                        <p matLine *ngIf="isExpanded">Job Vacancy</p>
+                    </a>
+                    <a mat-list-item (click)="logout()">
+                        <mat-icon mat-list-icon>lock_open</mat-icon>
+                        <p matLine *ngIf="isExpanded">Logout</p>
+                    </a>
+                </mat-nav-list>
+            </mat-sidenav>
+
+            <div class="admin-sidenav-content">
+                <div class="toggle-btn" [innerHtml]="toggle_ico" (click)="toggle_nav()"></div>
+                <div class="top-label">
+                    <H1>{{title}}</H1>
+                </div>
+                <div class="content-data">
+                    <div class="inner-content">
+                        <app-admin-slide *ngIf="menu_option==1" (loading)="setloading($event)"></app-admin-slide>
+                        <app-admin-jobvacancy *ngIf="menu_option==2"></app-admin-jobvacancy>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </mat-sidenav-container>
+    </div>
+</div>

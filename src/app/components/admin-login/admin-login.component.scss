@@ -1,0 +1,77 @@
+.login-img{
+    text-align: center;
+}
+.username{
+    background-color: rgb(167, 8, 8);
+    width: 250px;
+    margin: auto;
+    padding-left: 7px;
+    padding-right: 12px;
+    padding-top:5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+}
+.user-password{
+    background-color: rgb(167, 8, 8);
+    width: 250px;
+    margin: auto;
+    padding-left: 7px;
+    padding-right: 12px;
+    padding-top:5px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    border-radius: 20px;
+}
+.ico{
+    margin-right: 5px;
+}
+.txtusername, .txtpassword{
+    width: 200px;
+    border:none;
+    background-color: rgba($color: #000000, $alpha: 0);
+    color: white;
+    font-weight: bold;
+}
+.submit{
+    width: 250px;
+    margin: auto;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.footer-label{
+    width: 250px;
+    margin: auto;
+    text-align: center;
+    margin-top: 65px;
+    color: rgb(180, 180, 180);
+    font-style: italic;
+}
+.btnsubmit{
+    padding:5px 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(40, 60, 241);
+    color: white;
+    font-weight: bold;
+}
+
+.none-outline{
+    -webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+.login-content{
+    background-color: rgb(240, 240, 241);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 7px;
+    border-radius: 7px;
+}
+.login-form{
+    height: 100vh;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}

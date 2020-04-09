@@ -1,0 +1,81 @@
+<div class="popup" [hidden]="hide_popup">
+    <app-main-popup (closed_popup)="close_popup($event)"></app-main-popup>
+</div>
+<div style="position:relative;">
+    <div class="head"></div>
+    <div class="slide-img">
+        <!-- booking form -->
+        <div class="book-form">
+            <app-book-form class="form-content"></app-book-form>
+        </div>
+        <!--end booking form -->
+        <mdb-carousel class="carousel slide" [animation]="'slide'">
+            <mdb-carousel-item *ngFor="let item of slide_data">
+                <img class="d-block w-100" src="{{item.img_path}}" alt="Second slide">
+            </mdb-carousel-item>
+        </mdb-carousel>
+    </div>
+</div>
+<div class="home-content">
+    <div class="service-content">
+        <div class="service-content-header">
+            <div class="service-content-header-label">
+                SERVICES
+            </div>
+            <div class="service-content-header-line"></div>
+        </div>
+        <div class="service-content-icons">
+            <div class="service">
+                <a href="/on-construction" id="airline" class="">
+                    <img src="assets/imgs/Service001.png" class="img">
+                </a>
+                <div style="padding-bottom:15px;"><span style="font-size: 20px; padding-top: 10px;">AIRLINE</span></div>
+                    
+            </div>
+            <div class="service">
+                <a href="/on-construction" id="charter_flight">
+                    <img src="assets/imgs/Service003.png" class="img">
+                </a>
+                <div style="padding-bottom:15px;"><span style="font-size: 20px; padding-top: 10px;">CHARTER FLIGHT</span></div>
+                 
+            </div>
+            <div class="service">
+                <a href="/on-construction" id="scenic_flight">
+                    <img src="assets/imgs/Service004.png" class="img">
+                </a>
+                <div style="padding-bottom:15px;"><span style="font-size: 20px; padding-top: 10px;">SCENIC FLIGHT</span></div>
+                
+            </div>
+            <div class="service">
+                <a href="https://www.laoskywayhotel.com" id="lsw_hotel">
+                    <img src="assets/imgs/Service005.png" class="img">
+                </a>
+                <div style="padding-bottom:15px;"><span style="font-size: 20px; padding-top: 10px;">LAOSKYWAY HOTEL</span></div>
+                 
+            </div>
+        </div>
+
+    </div>
+    <div class="app-store-section">
+        <div class="app-store-section-line"></div>
+        <div class="app-store-section-inner">
+            <div class="lsw-logo" style="margin-right: 15px;">
+                <img class="main-logo" src="assets/imgs/lsw_logo.gif" width="120">
+            </div>
+            <div class="app-store-section-content">
+                <div class="app-store-section-content-label">
+                    <span style="color: rgb(207, 60, 60);">LAO </span><span style="color: blue;">SKYWAY APPLICATION</span>   
+                </div>
+                <div style="text-align: left; font-weight: bold; color: chocolate;">DOWNLOAD HERE</div>
+                <div class="app-store-items">
+                    <a href="#">
+                        <img class="sub-logo" src="assets/imgs/app-store.png" width="150">
+                    </a>
+                    <a href="#">
+                        <img class="sub-logo" src="assets/imgs/Google_Play.png" width="150">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

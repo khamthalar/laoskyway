@@ -1,0 +1,76 @@
+@mixin mq-lg {
+    @media (min-width: 1170px) {
+      @content;
+    }
+}
+@mixin mq-tb {
+    @media (min-width: 800px) {
+      @content;
+    }
+}
+
+$linewidth: 250px;
+$lineheight: 2px;
+
+$fleet-item-height: 40px;
+$fleet-items:7;
+
+img{
+    width: 100%;
+}
+#fleetInfo{
+    max-width: 1300px;
+    margin: auto;
+    padding-left:20px;
+    padding-right: 20px;
+    .item{
+        width: 100%;
+        display: grid;
+        margin-top: 30px;
+        grid-template-columns: 1fr;
+        .header{
+            text-align: center;
+            .title{
+                @include mq-lg{
+                    font-size: 30px;
+                }
+                @include mq-tb{
+                    font-size: 25px;
+                }
+
+            }
+            .title-line{
+                width: $linewidth;
+                height: $lineheight;
+                border-radius: 10px;
+                margin:5px auto 10px;
+                background-color: red;
+
+            }
+        }
+        .info{
+            display: grid;
+            grid-row-gap: 5px;
+            grid-template-rows: 1fr repeat(7,$fleet-item-height) 1fr;
+            .fleet-item{
+                display: flex;
+                align-items:center;
+                font-size: 18px;
+                @for $i from 1 to $fleet-items+1 {
+                    &:nth-child(#{$i}){
+                        grid-row-start: $i + 1;
+                        grid-row-end: $i + 2;
+                    }
+                }
+            }
+        }
+        @include mq-lg{
+            grid-template-columns: 1fr 1fr;
+            .cell:nth-child(1){
+                grid-column: 1/3;
+                grid-row: 1/2;
+            }
+        }
+        
+    }
+}

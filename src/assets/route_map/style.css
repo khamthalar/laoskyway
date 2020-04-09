@@ -1,0 +1,4 @@
+#animation_container, #canvas, #dom_overlay_container{
+    width:100% !important; 
+    height:auto !important
+}

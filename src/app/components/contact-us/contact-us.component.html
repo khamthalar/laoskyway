@@ -1,0 +1,39 @@
+<section id=contact-us>
+    <div class="map item">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <agm-marker [latitude]="lat" [longitude]="lng"
+                [iconUrl]='{"url": "/assets/svg/marker.svg","scaledSize": {"height": 30, "width": 30}}'></agm-marker>
+        </agm-map>
+    </div>
+    <div class="head-office item">
+        <div style="padding-top: 15px;">
+            <img src="/assets/svg/home-run.svg" style="width: 20px; margin-top: -10px;">&nbsp;<span style="font-size:20px;">Head office:</span>&nbsp;Asean Road, Ban
+            Wattay yai thong,
+            Sikhodtabong Distric, Vientiane Capital, Lao P.D.R, P.O Box 6618
+        </div>
+        <div style="padding-top: 6px;">
+            <img src="/assets/svg/fax.svg" style="width: 20px; margin-top: -6px;">&nbsp;(856)21 512 027
+        </div>
+        <div style="padding-top: 6px;">
+            <img src="/assets/svg/phone.svg" style="width: 20px; margin-top: -6px;">&nbsp;(856)21 513 022, 512 027
+        </div>
+        <div style="padding-top: 6px;">
+            <img src="/assets/svg/envelope.svg" style="width: 20px; margin-top: -6px;">&nbsp;info@laoskyway.com,
+            service@laoskyway.com
+        </div>
+        <div style="padding-top: 6px; margin-bottom: 10px;">
+            <a href="https://www.facebook.com/laoskyway" target="_blank" style="color: black;">
+                <img src="/assets/svg/facebook.svg" style="width: 20px; margin-top: -6px;">&nbsp;www.facebook.com/laoskyway
+            </a>
+        </div>
+        <div style="padding-top: 6px;" class="direction">
+            <a href="{{dir_url}}" target="_blank" style="color: rgb(209, 2, 2);">
+                <img src="/assets/imgs/directions.png" style="width: 20px; margin-top: -6px;">&nbsp;get directions
+            </a>
+        </div>
+        <div class="call-center">
+            Call center: 1441
+        </div>
+
+    </div>
+</section>

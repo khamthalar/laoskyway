@@ -1,0 +1,155 @@
+.head{
+    position: absolute;
+    height: 30px;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: rgba($color: #ffff, $alpha: 0.5);
+}
+.slide-img{
+    max-width: 1300px !important;
+    margin: auto;
+    position: relative;
+    height: 600px;
+}
+
+//popup
+
+.popup{
+    position: fixed;
+    overflow: scroll;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999999;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+}
+
+
+//booking form
+
+.book-form{
+    position: absolute;
+    z-index: 999;
+    top: 30px;
+    width: 100%;
+}
+
+
+
+// end booking form
+
+
+.home-content{
+    max-width: 1300px;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+    overflow: auto;
+}
+.service-content-header{
+    margin-bottom: 40px;
+}
+.service-content-header-label{
+    margin-top: 40px;
+    font-size: 30px;
+    color:#FF2500;
+    margin-bottom: 5px;
+}
+.service-content-header-line{
+    height: 4px;
+    width: 200px;
+    background-color: #FF2500;
+    margin: auto;
+    border-radius: 2px;
+}
+.img{
+    width: 80%;
+}
+.service-content-icons{
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.app-store-section-line{
+    width: 80%;
+    height: 1px;
+    background-color: rgb(189, 187, 187);
+    margin: auto;
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
+}
+.app-store-section-inner{
+    height: 152px;
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.app-store-section-content-label{
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+@media(max-width:600px){
+    .app-store-section-inner{
+        width: calc(100% - 40px) !important;
+    }
+}
+@media(min-width:600px){
+    .service{
+        width: 50%;
+    }
+}
+@media(min-width:800px){
+    .service{
+        width: 33.2%;
+    }
+}
+@media(min-width:1000px){
+    .service{
+        width: 25%;
+    }
+}
+
+@media(max-width:1000px){
+    .book-form{
+        background-color: white;
+        text-align: center;
+        top: -1px;
+        padding-top: 30px;
+    }
+}
+
+@media (max-width:536px){
+    .sub-logo{
+        width: 110px !important;
+    }
+    .app-store-section-content-label{
+        font-size: 16px;
+        text-align: left;
+    }
+    .main-logo{
+        width: 80px !important;
+    }
+}
+@media (max-width:388px){
+    .lsw-logo{
+        margin-right: 7px !important;
+    }
+    .sub-logo{
+        width: 100px !important;
+    }
+    .app-store-section-content-label{
+        font-size: 14px;
+        text-align: left;
+    }
+    .main-logo{
+        width: 70px !important;
+    }
+}
