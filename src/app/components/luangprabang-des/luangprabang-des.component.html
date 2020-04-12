@@ -1,1 +1,36 @@
-<p>luangprabang-des works!</p>
+<section id=des-lpb>
+    <div class="header">LUANGPRABANG</div>
+    <div class="body">
+        <b>Luang Prabang:</b> A UNESCO World Heritage Site dotted with charming French Colonial architecture and a host
+        of natural and historical sites. Tourists flock to waterfalls, caves, Vat Xieng Thong temple, and the Haw Kham
+        Royal Palace Museum, as well as the buzzing dining scene and handicraft markets.
+    </div>
+    <div class="img-slide">
+        <mdb-carousel [animation]="'slide'" [ngSwitch]="carouselDisplayMode" [isControls]="true"
+            class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'">
+            <ng-container *ngSwitchCase="'single'">
+                <mdb-carousel-item *ngFor="let card of cards">
+                    <mdb-card class="my-1">
+                        <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
+                    </mdb-card>
+                </mdb-carousel-item>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'multiple'">
+                <mdb-carousel-item *ngFor="let item of slides; let i = index">
+                    <div class="col-md-4" *ngFor="let card of item; let cardIndex = index">
+                        <mdb-card class="my-1">
+                            <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
+                        </mdb-card>
+                    </div>
+                </mdb-carousel-item>
+            </ng-container>
+        </mdb-carousel>
+    </div>
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27333.742896800926!2d102.14525456653213!3d19.887548063370666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x312f2a3f413d1ba3%3A0xac9749a9608e6a56!2z4LuA4Lqh4Lq34Lqt4LqH4Lqr4Lq84Lqn4LqH4Lqe4Lqw4Lqa4Lqy4LqH!5e0!3m2!1slo!2sla!4v1586663904616!5m2!1slo!2sla"
+            width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+</section>
