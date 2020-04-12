@@ -30,6 +30,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 
 import { AgmCoreModule } from '@agm/core';
 import { LuangprabangDesComponent } from './components/luangprabang-des/luangprabang-des.component';
+import { BokeoDesComponent } from './components/bokeo-des/bokeo-des.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LuangprabangDesComponent } from './components/luangprabang-des/luangpra
     RouteMapComponent,
     OrgChartComponent,
     ContactUsComponent,
-    LuangprabangDesComponent
+    LuangprabangDesComponent,
+    BokeoDesComponent
   ],
   imports: [
     BrowserModule,
