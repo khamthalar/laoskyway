@@ -31,6 +31,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { AgmCoreModule } from '@agm/core';
 import { LuangprabangDesComponent } from './components/luangprabang-des/luangprabang-des.component';
 import { BokeoDesComponent } from './components/bokeo-des/bokeo-des.component';
+import { OudomxayDesComponent } from './components/oudomxay-des/oudomxay-des.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { BokeoDesComponent } from './components/bokeo-des/bokeo-des.component';
     OrgChartComponent,
     ContactUsComponent,
     LuangprabangDesComponent,
-    BokeoDesComponent
+    BokeoDesComponent,
+    OudomxayDesComponent
   ],
   imports: [
     BrowserModule,

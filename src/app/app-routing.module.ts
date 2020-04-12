@@ -12,6 +12,7 @@ import { OrgChartComponent } from './components/org-chart/org-chart.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { LuangprabangDesComponent } from './components/luangprabang-des/luangprabang-des.component';
 import { BokeoDesComponent } from './components/bokeo-des/bokeo-des.component';
+import { OudomxayDesComponent } from './components/oudomxay-des/oudomxay-des.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:'org_chart',component:OrgChartComponent},
   {path:'contact_us',component:ContactUsComponent},
   {path:'luangprabang_des',component:LuangprabangDesComponent},
-  {path:'bokeo_des',component:BokeoDesComponent}
+  {path:'bokeo_des',component:BokeoDesComponent},
+  {path:'oudomxay_des',component:OudomxayDesComponent}
 ];
 
 @NgModule({
