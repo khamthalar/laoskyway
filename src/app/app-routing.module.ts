@@ -10,6 +10,7 @@ import { CargoTrackingComponent } from './components/cargo-tracking/cargo-tracki
 import { RouteMapComponent } from './components/route-map/route-map.component';
 import { OrgChartComponent } from './components/org-chart/org-chart.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { LuangprabangDesComponent } from './components/luangprabang-des/luangprabang-des.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'cargo_check',component:CargoTrackingComponent},
   {path:'route_map',component:RouteMapComponent},
   {path:'org_chart',component:OrgChartComponent},
-  {path:'contact_us',component:ContactUsComponent}
+  {path:'contact_us',component:ContactUsComponent},
+  {path:'luangprabang_des',component:LuangprabangDesComponent}
 ];
 
 @NgModule({

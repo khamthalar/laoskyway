@@ -29,6 +29,7 @@ import { OrgChartComponent } from './components/org-chart/org-chart.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { LuangprabangDesComponent } from './components/luangprabang-des/luangprabang-des.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AgmCoreModule } from '@agm/core';
     CargoTrackingComponent,
     RouteMapComponent,
     OrgChartComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    LuangprabangDesComponent
   ],
   imports: [
     BrowserModule,
