@@ -14,6 +14,7 @@ import { LuangprabangDesComponent } from './components/luangprabang-des/luangpra
 import { BokeoDesComponent } from './components/bokeo-des/bokeo-des.component';
 import { OudomxayDesComponent } from './components/oudomxay-des/oudomxay-des.component';
 import { LuangnamthaDesComponent } from './components/luangnamtha-des/luangnamtha-des.component';
+import { FlightScheduleComponent } from './components/flight-schedule/flight-schedule.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'luangprabang_des',component:LuangprabangDesComponent},
   {path:'bokeo_des',component:BokeoDesComponent},
   {path:'oudomxay_des',component:OudomxayDesComponent},
-  {path:'luangnamtha_des',component:LuangnamthaDesComponent}
+  {path:'luangnamtha_des',component:LuangnamthaDesComponent},
+  {path:'flight_schedule',component:FlightScheduleComponent}
 ];
 
 @NgModule({
