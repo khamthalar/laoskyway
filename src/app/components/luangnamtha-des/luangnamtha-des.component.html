@@ -1,0 +1,36 @@
+<section id=des-luangnamtha>
+    <div class="header">LUANGNAMTHA</div>
+    <div class="body">
+        <b>Luang Namtha:</b> A wealth of sustainable tourism experiences will entice visitors
+         including jungle treks, kayaking, cooking classes, village visits, and homestays. Several tour operators 
+         offer guided adventure activities throughout the province.
+    </div>
+    <div class="img-slide">
+        <mdb-carousel [animation]="'slide'" [ngSwitch]="carouselDisplayMode" [isControls]="true"
+            class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'">
+            <ng-container *ngSwitchCase="'single'">
+                <mdb-carousel-item *ngFor="let card of cards">
+                    <mdb-card class="my-1">
+                        <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
+                    </mdb-card>
+                </mdb-carousel-item>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'multiple'">
+                <mdb-carousel-item *ngFor="let item of slides; let i = index">
+                    <div class="col-md-4" *ngFor="let card of item; let cardIndex = index">
+                        <mdb-card class="my-1">
+                            <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
+                        </mdb-card>
+                    </div>
+                </mdb-carousel-item>
+            </ng-container>
+        </mdb-carousel>
+    </div>
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99213.94944529187!2d101.4165629661151!3d20.968696359052977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x312bcc6c940d53bb%3A0x4ce1b5a355f19e08!2z4Lqr4Lq84Lqn4LqH4LqZ4LuJ4Lqz4LqX4Lqy!5e0!3m2!1slo!2sla!4v1586738136930!5m2!1slo!2sla"
+            width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+</section>

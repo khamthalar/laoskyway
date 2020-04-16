@@ -32,6 +32,8 @@ import { AgmCoreModule } from '@agm/core';
 import { LuangprabangDesComponent } from './components/luangprabang-des/luangprabang-des.component';
 import { BokeoDesComponent } from './components/bokeo-des/bokeo-des.component';
 import { OudomxayDesComponent } from './components/oudomxay-des/oudomxay-des.component';
+import { LuangnamthaDesComponent } from './components/luangnamtha-des/luangnamtha-des.component';
+import { FlightScheduleComponent } from './components/flight-schedule/flight-schedule.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { OudomxayDesComponent } from './components/oudomxay-des/oudomxay-des.com
     ContactUsComponent,
     LuangprabangDesComponent,
     BokeoDesComponent,
-    OudomxayDesComponent
+    OudomxayDesComponent,
+    LuangnamthaDesComponent,
+    FlightScheduleComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { LuangprabangDesComponent } from './components/luangprabang-des/luangprabang-des.component';
 import { BokeoDesComponent } from './components/bokeo-des/bokeo-des.component';
 import { OudomxayDesComponent } from './components/oudomxay-des/oudomxay-des.component';
+import { LuangnamthaDesComponent } from './components/luangnamtha-des/luangnamtha-des.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:'contact_us',component:ContactUsComponent},
   {path:'luangprabang_des',component:LuangprabangDesComponent},
   {path:'bokeo_des',component:BokeoDesComponent},
-  {path:'oudomxay_des',component:OudomxayDesComponent}
+  {path:'oudomxay_des',component:OudomxayDesComponent},
+  {path:'luangnamtha_des',component:LuangnamthaDesComponent}
 ];
 
 @NgModule({

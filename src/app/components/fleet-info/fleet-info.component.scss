@@ -1,10 +1,10 @@
 @mixin mq-lg {
-    @media (min-width: 1170px) {
+    @media (min-width: 900px) {
       @content;
     }
 }
 @mixin mq-tb {
-    @media (min-width: 800px) {
+    @media (min-width: 700px) {
       @content;
     }
 }
@@ -19,7 +19,7 @@ img{
     width: 100%;
 }
 #fleetInfo{
-    max-width: 1300px;
+    max-width: 900px;
     margin: auto;
     padding-left:20px;
     padding-right: 20px;
@@ -31,12 +31,13 @@ img{
         .header{
             text-align: center;
             .title{
-                @include mq-lg{
-                    font-size: 30px;
-                }
-                @include mq-tb{
-                    font-size: 25px;
-                }
+                font-size: 21px;
+                // @include mq-lg{
+                //     font-size: 30px;
+                // }
+                // @include mq-tb{
+                //     font-size: 25px;
+                // }
 
             }
             .title-line{
@@ -65,7 +66,7 @@ img{
             }
         }
         @include mq-lg{
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 400px;
             .cell:nth-child(1){
                 grid-column: 1/3;
                 grid-row: 1/2;

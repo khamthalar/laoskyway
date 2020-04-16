@@ -1,4 +1,5 @@
 {
     "baseURL":"https://api.laoskyway.com/public",
-    "cargo_api":"http://202.136.241.118:8012/api/public/getCargoStatus"
+    "cargo_api":"http://202.136.241.118:8012/api/public/getCargoStatus",
+    "amelia_api":"https://laoskyway-api.intelisysmaint.ca/RESTv1/"
 }
