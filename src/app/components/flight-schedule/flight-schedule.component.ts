@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import baseData from '../../data.json';
 
 @Component({
@@ -16,7 +16,7 @@ export class FlightScheduleComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any>(baseData.amelia_api + 'cityPairs').subscribe(result => {
+    this.http.get<any>(baseData.baseURL + '/cityPairs').subscribe(result => {
       this.cityPairs = result;
     });
   }
@@ -32,18 +32,40 @@ export class FlightScheduleComponent implements OnInit {
       let month = today.getMonth() + 1;
       latestDate = today.getFullYear() + '-' + month + '-' + today.getDate() + ' 23:59:59Z';
     }
-    const header = new HttpHeaders({ Authorization: 'Basic ' + btoa(baseData.amelia_api_auth) });
-    const param = new HttpParams()
-      .set('earliestDate', earliestDate)
-      .set('latestDate', latestDate)
-      .set('departureAirport', depart)
-      .set('arrivalAirport', arrival);
-    this.http.get<any>(baseData.amelia_api + 'schedules', { params: param, headers: header }).subscribe(
-      result => {
-        this.schedule = result;
+
+    let data = {
+      "earliestDate": earliestDate,
+      "latestDate": latestDate,
+      "departureAirport": depart,
+      "arrivalAirport": arrival,
+      "amelia_api_auth": baseData.amelia_api_auth
+    }
+    this.http.post<any>(baseData.baseURL + '/schedules', data).subscribe(result => {
+      if (result.res == "error"){
         this.hide_loading = true;
-        this.show_guide = false;
-      });
+        console.log(result.detail);
+      }else{
+        this.schedule = result;
+      }
+    },(err: HttpErrorResponse) =>{
+      this.hide_loading = true;
+      window.alert("error code:" + err.status + " " + err.statusText);
+    },()=>{
+      this.hide_loading = true;
+      this.show_guide = false;
+    });
+    // const header = new HttpHeaders({ Authorization: 'Basic ' + btoa(baseData.amelia_api_auth) });
+    // const param = new HttpParams()
+    //   .set('earliestDate', earliestDate)
+    //   .set('latestDate', latestDate)
+    //   .set('departureAirport', depart)
+    //   .set('arrivalAirport', arrival);
+    // this.http.get<any>(baseData.amelia_api + 'schedules', { params: param, headers: header }).subscribe(
+    //   result => {
+    //     this.schedule = result;
+    //     this.hide_loading = true;
+    //     this.show_guide = false;
+    //   });
   }
 
 }

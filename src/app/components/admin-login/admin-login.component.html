@@ -9,7 +9,7 @@
         </div>
         <div class="user-password">
             <img src="/assets/svg/padlock.svg" width="25" class="ico">
-            <input type="password" class="txtpassword none-outline" [(ngModel)]="password">
+            <input type="password" class="txtpassword none-outline" [(ngModel)]="password" (keydown)="onKey($event)">
         </div>
         <div class="submit">
             <button class="btnsubmit none-outline" (click)="onLogin()">Login</button>

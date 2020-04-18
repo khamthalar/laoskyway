@@ -59,4 +59,10 @@ export class AdminLoginComponent implements OnInit {
     // this.isLogin.emit(true);
     // sessionStorage.setItem("isLogin","isLogin");
   }
+
+  onKey(event: any){
+    if (event.key === "Enter"){
+      this.onLogin();
+    }
+  }
 }

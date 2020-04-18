@@ -10,7 +10,7 @@ import baseData from '../../data.json';
 })
 export class HomeComponent implements OnInit {
 
-  hide_popup:boolean=true;
+  hide_popup:boolean=false;
   slide_data: {
     id: number;
     img_name: string;
