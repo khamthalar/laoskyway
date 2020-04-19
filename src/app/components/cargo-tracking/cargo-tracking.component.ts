@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import baseData from '../../data.json';
+import baseData from '../../../assets/json/data.json';
 import { timeout, map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 

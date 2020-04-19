@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { url } from 'inspector';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import baseData from '../../data.json';
+import baseData from '../../../assets/json/data.json';
 
 @Component({
   selector: 'app-admin-slide',

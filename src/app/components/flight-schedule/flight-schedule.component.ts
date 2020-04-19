@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import baseData from '../../data.json';
+import baseData from '../../../assets/json/data.json';
 
 @Component({
   selector: 'app-flight-schedule',
@@ -13,11 +13,17 @@ export class FlightScheduleComponent implements OnInit {
   schedule:any;
   hide_loading:boolean = true;
   show_guide:boolean = true;
+  show_bodyload:boolean = true;
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http.get<any>(baseData.baseURL + '/cityPairs').subscribe(result => {
       this.cityPairs = result;
+    },(err:HttpErrorResponse)=>{
+      this.show_bodyload = false;
+      console.log("error: "+ err.status + " " + err.statusText);
+    },()=>{
+      this.show_bodyload = false;
     });
   }
   loaddata(depart: string, arrival: string) {

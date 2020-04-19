@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import language from '../assets/json/language.json';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent implements OnInit{
   
   ngOnInit(): void {
     this.isEnglish = true; 
+    console.log(language);
   }
   
 }
