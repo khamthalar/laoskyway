@@ -1,0 +1,76 @@
+<section id=admin-setup>
+    <mat-tab-group class="tab">
+
+        <!-- users -->
+
+        <mat-tab label="Web Backen Users">
+            <div class="table-head-section">
+                <div class="num-user">
+                    <img src="/assets/svg/users.svg" width="22" style="padding-bottom: 10px;">
+                    <span class="num-user-text">{{users_num}} <b>users</b></span>
+                </div>
+                <div class="btn-add-user" (click)="newUsers()"><img src="/assets/svg/add_user.svg" width="25" style="margin-right: 5px;">
+                    Add new user</div>
+            </div>
+            <table mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef class="th_name header"> name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="username">
+                    <th mat-header-cell *matHeaderCellDef class="header"> username </th>
+                    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="password">
+                    <th mat-header-cell *matHeaderCellDef class="header"> password </th>
+                    <td mat-cell *matCellDef="let element">
+                        <input type="password" value="element.password" class="user_password none-outline" disabled>
+                    </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="User Group">
+                    <th mat-header-cell *matHeaderCellDef class="header"> User Group </th>
+                    <td mat-cell *matCellDef="let element"> {{element.user_group}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef class="header"> Status </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="user_status act_user_st" *ngIf="element.status==1">active</div>
+                        <div class="user_status del_user_st" *ngIf="element.status!=1">deleted</div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Action">
+                    <th mat-header-cell *matHeaderCellDef class="th_action header"> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button>test</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-tab>
+
+        <!-- defualt data -->
+
+        <mat-tab label="Web Data Setup" class="dataSetup">
+            <div class="data" *ngFor="let item of data">
+                <div class="label">{{item[0]}} : </div>
+                <div class="input">
+                    <input class="txt-value none-outline" type="text" value="{{item[1]}}"
+                        (keyup)="txtKeyUp(txt.value,item[1])" (focusout)="leaveInput(txt.value,item[0],item[1])" #txt>
+                </div>
+            </div>
+            <div class="btn"><button class="btn-save none-outline" id="btn-save" disabled (click)="saved()">Save
+                    Change</button></div>
+        </mat-tab>
+    </mat-tab-group>
+</section>

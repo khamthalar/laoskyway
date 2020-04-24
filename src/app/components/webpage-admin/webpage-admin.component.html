@@ -1,6 +1,6 @@
 <div class="page_admin">
     <app-loading class="loading" [hidden]="!isLoading"></app-loading>
-    <app-admin-login class="login" (loading)="setloading($event)" (isLogin)="isLogin_status($event)" [hidden]="isLogin"></app-admin-login>
+    <app-admin-login class="login" (loading)="setloading($event)" (isLogin)="isLogin_status($event)" [hidden]="isLogin" id="login_page"></app-admin-login>
 
     <div class="admin-container">
         <mat-sidenav-container class="admin-sidenav-container" autosize>
@@ -22,6 +22,10 @@
                         <mat-icon mat-list-icon>card_travel</mat-icon>
                         <p matLine *ngIf="isExpanded">Job Vacancy</p>
                     </a>
+                    <a mat-list-item (click)="menu_option=3; title='Admin Setup'">
+                        <mat-icon mat-list-icon>settings</mat-icon>
+                        <p matLine *ngIf="isExpanded">Admin Setup</p>
+                    </a>
                     <a mat-list-item (click)="logout()">
                         <mat-icon mat-list-icon>lock_open</mat-icon>
                         <p matLine *ngIf="isExpanded">Logout</p>
@@ -38,6 +42,7 @@
                     <div class="inner-content">
                         <app-admin-slide *ngIf="menu_option==1" (loading)="setloading($event)"></app-admin-slide>
                         <app-admin-jobvacancy *ngIf="menu_option==2"></app-admin-jobvacancy>
+                        <app-admin-setup *ngIf="menu_option==3"></app-admin-setup>
                         
                     </div>
                 </div>

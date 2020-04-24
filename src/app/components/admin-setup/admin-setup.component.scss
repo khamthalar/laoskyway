@@ -1,0 +1,113 @@
+#admin-setup{
+    padding: 20px;
+}
+.data{
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.label{
+    width: fit-content;
+}
+.txt-value{
+    width: calc(100% - 5px);
+    margin-left: 5px;
+    border: none;
+}
+.none-outline{
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select:none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    outline: none !important;
+}
+.btn{
+    margin: 0;
+    padding: 0;
+    margin-top: 5px !important;
+}
+
+.btn-save{
+    border: none;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
+.btn-save:hover{
+    background-color: rgb(1, 107, 1);
+}
+.btn-save:disabled{
+    background-color:rgb(135, 136, 135);
+}
+
+
+
+
+
+// users tab section
+table {
+    width: 100%;
+}
+.table-head-section{
+    position: relative;
+}
+.btn-add-user{
+    position: absolute;
+    right: 0;
+    width: fit-content;
+    bottom: 10px;
+    background-color:#2E9A7A;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+.btn-add-user:hover{
+    background-color:rgb(29, 136, 104);
+}
+.header{
+    background-color:#3B444F !important;
+    color: white !important;
+}
+.num-user{
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+.num-user-text{
+    font-size: 20px;
+    padding-left: 5px;
+    margin-top: 5px;
+}
+.th_name{
+    border-radius: 10px 0 0 0;
+    padding-left: 25px !important;
+}
+.th_action{
+    border-radius: 0 10px 0 0;
+}
+th{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+.user_password{
+    border: none;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.user_status{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+    width: fit-content;
+}
+.act_user_st{
+    background-color: #DBF0FD;
+}
+.del_user_st{
+    background-color: #FBDDE9;
+}

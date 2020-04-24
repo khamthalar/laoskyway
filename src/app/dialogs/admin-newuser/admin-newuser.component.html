@@ -1,0 +1,24 @@
+<div class="header">
+    <label *ngIf="!data.edit">Add New User</label>
+    <label *ngIf="data.edit">Edit User</label>
+</div>
+<div *ngIf="data.edit" style="text-align: center;"><label>user id : {{data.id}}</label></div>
+<!-- <div>
+    <div>name:</div>
+    <input class="field" type="text" [(ngModel)]="data.name"></div>
+<div>username<input type="text" [(ngModel)]="data.username"></div>
+<div>user group
+    <select id="user_group" name="user_group" [(ngModel)]="data.user_group">
+        <option value="administrator">administrator</option>
+        <option value="marketing">marketing</option>
+    </select>
+</div>
+<div>password<input type="password" [(ngModel)]="data.password"></div>
+<div>conform password<input type="password"></div>
+<div>
+    <mat-checkbox [(ngModel)]="data.status">Active</mat-checkbox>
+</div>
+
+
+<button (click)="save_clicked()">Save</button>
+<button (click)="cancel()">Cancel</button> -->

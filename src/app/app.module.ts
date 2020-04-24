@@ -34,6 +34,9 @@ import { BokeoDesComponent } from './components/bokeo-des/bokeo-des.component';
 import { OudomxayDesComponent } from './components/oudomxay-des/oudomxay-des.component';
 import { LuangnamthaDesComponent } from './components/luangnamtha-des/luangnamtha-des.component';
 import { FlightScheduleComponent } from './components/flight-schedule/flight-schedule.component';
+import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
+import { AdminSetupComponent } from './components/admin-setup/admin-setup.component';
+import { AdminNewuserComponent } from './dialogs/admin-newuser/admin-newuser.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { FlightScheduleComponent } from './components/flight-schedule/flight-sch
     BokeoDesComponent,
     OudomxayDesComponent,
     LuangnamthaDesComponent,
-    FlightScheduleComponent
+    FlightScheduleComponent,
+    ConfirmDialogComponent,
+    AdminSetupComponent,
+    AdminNewuserComponent
   ],
   imports: [
     BrowserModule,
