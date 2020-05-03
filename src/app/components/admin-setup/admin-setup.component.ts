@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import webData from '../../../assets/json/data.json';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import baseData from '../../../assets/json/data.json';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource} from '@angular/material/table';
 import { AdminNewuserComponent } from 'src/app/dialogs/admin-newuser/admin-newuser.component';
 import { MatDialog } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -19,20 +20,21 @@ export class AdminSetupComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'username', 'password', 'User Group', 'Status', 'Action'];
 
 
-
   web_data: any;
   data = [];
   data_changed = [];
   web_data_onEdit: any;
 
-  users_num:number=0;
-
+  users_num: number = 0;
+  show_user_load: boolean = false;
   dataSource = new MatTableDataSource<users>();
 
   constructor(private http: HttpClient, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+    this.show_user_load = true;
+
     this.web_data = JSON.stringify(webData);
     JSON.parse(this.web_data, (key, value) => {
       if (key != "" && value != "") {
@@ -42,6 +44,7 @@ export class AdminSetupComponent implements OnInit {
     this.web_data_onEdit = Array(webData);
     this.getUserData();
   }
+
   txtKeyUp(value, oldData) {
     this.check_changed(value, oldData);
   }
@@ -134,38 +137,62 @@ export class AdminSetupComponent implements OnInit {
   }
 
   getUserData() {
-
-
+    this.show_user_load = true;
+    this.dataSource = new MatTableDataSource<users>();
     this.http.get<any>(baseData.baseURL + '/get_users').subscribe(result => {
       if (result.res == "success") {
         this.dataSource = new MatTableDataSource<users>(result.data);
-        // console.log(this.dataSource);
         this.users_num = result.data.length;
       }
+    }, (err: HttpErrorResponse) => {
+      this.show_user_load = false;
+      window.alert(err);
+    }, () => {
+      this.show_user_load = false;
     });
+
   }
-  newUsers(){
+
+  newUsers() {
     const dialogRef = this.dialog.open(AdminNewuserComponent, {
-      width: '270px',
-      data: { id: "",
+      width: '370px',
+      data: {
+        id: "",
         name: "",
         password: "",
         status: 1,
         user_group: "",
         username: "",
-        edit:false
+        edit: false
       }
     });
-    dialogRef.afterClosed().subscribe((confirm:boolean) => {
-      // if (confirm) {
-      //   // this.isLogin = false;
-      //   // sessionStorage.setItem("isLogin", "notLogin");
-      //   // element.hidden = false;
-      // }
-      // console.log(confirm);
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        const btn_refresh = document.getElementById('btn-refresh') as HTMLButtonElement;
+        btn_refresh.click();
+      }
     });
-  }
 
+  }
+  user_refresh() {
+    const loader = document.getElementById('loader') as HTMLSpanElement;
+    const user_num = document.getElementById('user-num') as HTMLSpanElement;
+    loader.hidden = false;
+    this.http.get<any>(baseData.baseURL + '/get_users').subscribe(result => {
+      if (result.res == "success") {
+        this.dataSource = new MatTableDataSource<users>(result.data);
+        this.users_num = result.data.length;
+        user_num.innerHTML = result.data.length+' <b>users</b>';
+        
+      }
+    }, (err: HttpErrorResponse) => {
+      loader.hidden =true;
+      window.alert(err);
+    }, () => {
+      loader.hidden = true;
+    });
+
+  }
 }
 export interface users {
   id: string,

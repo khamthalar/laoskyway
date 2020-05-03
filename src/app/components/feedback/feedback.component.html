@@ -1,53 +1,79 @@
 <div class="feedback_form">
-    <div class="success-box" [hidden]="successMeaasge">
+    <div class="success-box" [hidden]="!successMeaasge">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>ສົ່ງຄໍາຄິດເຫັນສໍາເລັດ!</strong> ຂອບໃຈທ່ານທີ່ສົ່ງຄໍາຄິດເຫັນຫາພວກເຮົາ, ພວກເຮົາຈະນໍາຄໍາຄິດເຫັນຂອງທ່ານໄປປັງປຸງ ແລະ ແກ້ໄຂໃຫ້ດີຂື້ນ
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <button type="button" class="close none-outline" data-dismiss="alert" aria-label="Close" (click)="successMeaasge=false; submitted=false;">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
     </div>
     <h4>Please use this form to send us your feedback:</h4>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Name and surname</span>
+
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="label">
+          <div class="label-text">Name and Surname</div>
+          <div class="label-error" *ngIf="submitted && form.name.errors">
+            <span *ngIf="form.name.errors.required">Name and Surname is required*</span>
+          </div>
+        </div>
+        <input type="text" formControlName="name" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && form.name.errors }" />
       </div>
-      <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="txtname">
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon2">Email</span>
+
+      <div class="form-group">
+        <div class="label">
+          <div class="label-text">Email Address</div>
+          <div class="label-error" *ngIf="submitted && form.email.errors">
+            <span *ngIf="form.email.errors.required">Email Address is required*</span>
+            <span *ngIf="form.email.errors.email">Email must be a valid email address</span>
+          </div>
+        </div>
+        <input placeholder="example@email.com" type="text" formControlName="email" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
       </div>
-      <input [(ngModel)]="txtemail" type="email" class="form-control" aria-describedby="basic-addon2" placeholder="example@email.com">
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon3">Feedback Type</span>
+
+      <div class="form-group">
+        <div class="label">
+          <div class="label-text">Feedback Type</div>
+          <div class="label-error" *ngIf="submitted && form.feedback_type.errors">
+            <span *ngIf="form.feedback_type.errors.required">Feedback Type is required</span>
+          </div>
+        </div>
+        <select formControlName="feedback_type" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.feedback_type.errors }">
+            <option value="">Choose...</option>
+          <option value="feedback">Feedback</option>
+          <option value="ask">Ask for enquiry</option>
+          <option value="other">Other...</option>
+        </select>
       </div>
-      <select name="feedback_type" class="custom-select" aria-describedby="basic-addon3" [(ngModel)]="cbfeedback_type">
-        <option value="">Choose...</option>
-        <option value="feedback">Feedback</option>
-        <option value="ask">Ask for enquiry</option>
-        <option value="other">Other...</option>
-      </select>
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon4">Title</span>
+
+      <div class="form-group">
+        <div class="label">
+          <div class="label-text">Title</div>
+          <div class="label-error" *ngIf="submitted && form.title.errors">
+            <span *ngIf="form.title.errors.required">Title is required*</span>
+          </div>
+        </div>
+        <input type="text" formControlName="title" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && form.title.errors }" />
       </div>
-      <input type="text" class="form-control" aria-describedby="basic-addon4" [(ngModel)]="txttitle">
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon5">Message</span>
+
+      <div class="form-group">
+        <div class="label">
+          <div class="label-text">Message</div>
+          <div class="label-error" *ngIf="submitted && form.message.errors">
+            <span *ngIf="form.message.errors.required">message is required*</span>
+          </div>
+        </div>
+        <textarea class="form-control" formControlName="message" rows="4"  [ngClass]="{ 'is-invalid': submitted && form.message.errors }">
+
+        </textarea>
       </div>
-      <textarea class="form-control" aria-describedby="basic-addon5" rows="4" [(ngModel)]="txtmessage"></textarea>
-    </div>
-    <div class="input-group">
-      <div style="width: 100%; text-align: center;">
-        <button type="submit" class="btn btn-primary" style="padding-left: 40px; padding-right: 40px;" [innerHTML]="btn_status" [disabled]="button_disabled">
-        </button>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-submit" [innerHTML]="loading">submit</button> 
       </div>
-    </div>
+    </form>
 
   </div>

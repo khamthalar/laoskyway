@@ -34,6 +34,7 @@ export class AdminLoginComponent implements OnInit {
           sessionStorage.setItem("user_name",result.data.name);
           this.isLogin.emit(true);
           sessionStorage.setItem("isLogin", "isLogin");
+          sessionStorage.setItem('user',result.data);
         } else {
           this.loading.emit(false);
           window.alert(result.res);

@@ -53,11 +53,23 @@ table {
 .table-head-section{
     position: relative;
 }
-.btn-add-user{
+
+.button-right{
     position: absolute;
     right: 0;
     width: fit-content;
     bottom: 10px;
+}
+.btn-refresh{
+    float: left;
+    width: fit-content;
+}
+#btn-refresh{
+    border: 0;
+}
+.btn-add-user{
+    float: left;
+    width: fit-content;
     background-color:#2E9A7A;
     font-size: 15px;
     padding: 5px 10px;

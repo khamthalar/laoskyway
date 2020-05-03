@@ -2,5 +2,6 @@
     "baseURL":"https://api.laoskyway.com/public",
     "cargo_api":"https://lswcargo.ga:8012/api/public/getCargoStatus",
     "amelia_api_auth":"tik:tik55210711",
+    "local_api_url":"https://lswcargo.ga:8012/api/public",
     "test":"test data1 changed1"
 }

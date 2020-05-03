@@ -60,18 +60,6 @@ export class FlightScheduleComponent implements OnInit {
       this.hide_loading = true;
       this.show_guide = false;
     });
-    // const header = new HttpHeaders({ Authorization: 'Basic ' + btoa(baseData.amelia_api_auth) });
-    // const param = new HttpParams()
-    //   .set('earliestDate', earliestDate)
-    //   .set('latestDate', latestDate)
-    //   .set('departureAirport', depart)
-    //   .set('arrivalAirport', arrival);
-    // this.http.get<any>(baseData.amelia_api + 'schedules', { params: param, headers: header }).subscribe(
-    //   result => {
-    //     this.schedule = result;
-    //     this.hide_loading = true;
-    //     this.show_guide = false;
-    //   });
   }
 
 }

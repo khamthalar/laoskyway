@@ -13,3 +13,21 @@
 .field{
     width: 100%;
 }
+.label{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.label-text{
+    width: fit-content;
+}
+.label-error{
+    text-align: right;
+    font-size: 10px;
+    color: red;
+}
+.btn{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100px;
+    text-align: center;
+}

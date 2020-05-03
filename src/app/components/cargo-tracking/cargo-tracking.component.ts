@@ -44,31 +44,6 @@ export class CargoTrackingComponent implements OnInit {
       let data = {
         "tracking_id": this.tracking_id
       }
-      // this.http.post<any>(baseData.cargo_api, data).subscribe(result => {
-      //   if(result.res=="success"){
-      //     this.result = result.data;
-      //     this.hidden_tracking_detail = false;
-      //   }else if(result.res=="not match tracking_id"){
-      //     this.result = this.default_data;
-      //     this.error_detail = "null";
-      //     this.hidden_tracking_detail = true;
-      //     this.hidden_error = false;
-      //     this.error_text = "not found data match with this Tracking ID: "+this.tracking_id;
-      //   }else{
-      //     this.result = this.default_data;
-      //     this.error_detail = "error";
-      //     this.hidden_tracking_detail = true;
-      //     this.hidden_error = false;
-      //     this.error_text="Can not search right now! please contact to administrator";
-      //   }
-      //   console.log(this.error_detail);
-      // },(err: HttpErrorResponse)=>{
-      //   this.result = this.default_data;
-      //     this.error_detail = "error";
-      //     this.hidden_tracking_detail = true;
-      //     this.hidden_error = false;
-      //     this.error_text="Can not search right now! please contact to administrator";
-      // });
       this.getDetail(data)
         .subscribe(result => {
           if (result.res == "success") {

@@ -7,12 +7,20 @@
             <div class="table-head-section">
                 <div class="num-user">
                     <img src="/assets/svg/users.svg" width="22" style="padding-bottom: 10px;">
-                    <span class="num-user-text">{{users_num}} <b>users</b></span>
+                    <span class="num-user-text" id="user-num">{{users_num}} <b>users</b></span>
+                    <span id="loader" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!show_user_load"></span>
                 </div>
-                <div class="btn-add-user" (click)="newUsers()"><img src="/assets/svg/add_user.svg" width="25" style="margin-right: 5px;">
-                    Add new user</div>
+                <div class="button-right">
+                    <div class="btn-refresh"><button class="none-outline" id="btn-refresh" (click)="user_refresh()">
+                        <img src="/assets/svg/refresh.svg" width="32">
+                    </button></div>
+                    <div class="btn-add-user" (click)="newUsers()"><img src="/assets/svg/add_user.svg" width="25" style="margin-right: 5px;">
+                        Add new user</div>
+                </div>
+                
+                
             </div>
-            <table mat-table [dataSource]="dataSource">
+            <table mat-table [dataSource]="dataSource" id="tb-user" matSort>
 
                 <ng-container matColumnDef="Name">
                     <th mat-header-cell *matHeaderCellDef class="th_name header"> name </th>
@@ -57,6 +65,7 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+            
         </mat-tab>
 
         <!-- defualt data -->

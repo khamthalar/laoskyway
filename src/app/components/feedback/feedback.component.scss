@@ -1,12 +1,17 @@
 
-
+.none-outline{
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select:none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    outline: none !important;
+}
 
 @media (max-width:600px){
     .customer_login, .agent_login, .agent_crs_login{
         display: none;
-    }
-    .success-box{
-        height: calc( 100vh - 122px);
     }
 }
 .feedback_form{
@@ -33,12 +38,28 @@
 .success-box{
     position: absolute;
     z-index: 99999;
-    background-color:#F8F9FA;
     width: calc(100% - 40px);
-    min-height: 430px;
+    bottom: 0;
+    top: 20px;
+    background-color: white;
 }
-@media(min-width:600px){
-    .success-box{
-        height: calc( 100vh - 146px);
-    }
+
+.form-group{
+    margin-bottom: 5px !important;
+}
+.label{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.label-text{
+    width: fit-content;
+}
+.label-error{
+    text-align: right;
+    font-size: 11px;
+    color: red;
+}
+.btn-submit{
+    margin-top: 15px;
+    padding:5px 30px;
 }

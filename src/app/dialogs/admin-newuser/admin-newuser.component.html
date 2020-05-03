@@ -1,69 +1,71 @@
 <div class="header">
-    <label *ngIf="!data.edit">Add New User</label>
-    <label *ngIf="data.edit">Edit User</label>
+  <label *ngIf="!data.edit">Add New User</label>
+  <label *ngIf="data.edit">Edit User</label>
 </div>
-<div *ngIf="data.edit" style="text-align: center;"><label>user id : {{data.id}}</label></div>
-<!-- <div>
-    <div>name:</div>
-    <input class="field" type="text" [(ngModel)]="data.name"></div>
-<div>username<input type="text" [(ngModel)]="data.username"></div>
-<div>user group
-    <select id="user_group" name="user_group" [(ngModel)]="data.user_group">
-        <option value="administrator">administrator</option>
-        <option value="marketing">marketing</option>
+<div *ngIf="data.edit" style="text-align: center;"><label>user id : USID00{{data.id}}</label></div>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <div class="label">
+      <div class="label-text">Name</div>
+      <div class="label-error" *ngIf="submitted && f.name.errors">
+        <span *ngIf="f.name.errors.required">Name is required</span>
+      </div>
+    </div>
+    <input type="text" formControlName="name" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+  </div>
+  <div class="form-group">
+    <div class="label">
+      <div class="label-text">User Group</div>
+      <div class="label-error" *ngIf="submitted && f.user_group.errors">
+        <span *ngIf="f.user_group.errors.required">User Group is required</span>
+      </div>
+    </div>
+    <select formControlName="user_group" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.user_group.errors }">
+      <option value="administrator">administrator</option>
+      <option value="marketing">marketing</option>
     </select>
-</div>
-<div>password<input type="password" [(ngModel)]="data.password"></div>
-<div>conform password<input type="password"></div>
-<div>
-    <mat-checkbox [(ngModel)]="data.status">Active</mat-checkbox>
-</div>
-
-
-<button (click)="save_clicked()">Save</button>
-<button (click)="cancel()">Cancel</button> -->
-
-<form>
-    <div class="form-row">
-      <div>
-        <label for="validationDefault01">First name</label>
-        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
-      </div>
-      <div>
-        <label for="validationDefault02">Last name</label>
-        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
-      </div>
-      <div>
-        <label for="validationDefaultUsername">Username</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend2">@</span>
-          </div>
-          <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
-        </div>
+  </div>
+  <div class="form-group">
+    <div class="label">
+      <div class="label-text">Username</div>
+      <div class="label-error" *ngIf="submitted && f.username.errors">
+        <span *ngIf="f.username.errors.required">Username is required</span>
       </div>
     </div>
-    <div class="form-row">
-      <div>
-        <label for="validationDefault03">City</label>
-        <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
-      </div>
-      <div>
-        <label for="validationDefault04">State</label>
-        <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
-      </div>
-      <div>
-        <label for="validationDefault05">Zip</label>
-        <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
+    <input type="text" formControlName="username" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+  </div>
+  <div class="form-group">
+    <div class="label">
+      <div class="label-text">Password</div>
+      <div class="label-error" *ngIf="submitted && f.password.errors">
+        <span *ngIf="f.password.errors.required">Password is required</span>
       </div>
     </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-        <label class="form-check-label" for="invalidCheck2">
-          Agree to terms and conditions
-        </label>
+    <input type="password" formControlName="password" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+  </div>
+  <div class="form-group">
+    <div class="label">
+      <div class="label-text">Confirm Password</div>
+      <div class="label-error" *ngIf="submitted && f.confirmPassword.errors">
+        <span *ngIf="f.confirmPassword.errors.required">Confirm Password is required</span>
+        <span *ngIf="f.confirmPassword.errors.mustMatch">Password must match</span>
       </div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit form</button>
-  </form>
+    <input type="password" formControlName="confirmPassword" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="Active" formControlName="status">
+      <label class="form-check-label" for="Active">Active</label>
+    </div>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary" [innerHTML]="loading"></button> 
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </div>
+</form>
