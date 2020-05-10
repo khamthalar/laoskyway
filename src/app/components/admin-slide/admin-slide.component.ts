@@ -47,14 +47,10 @@ export class AdminSlideComponent implements OnInit {
   addNewImg() {
     const fileUpload = document.getElementById('newImg') as HTMLInputElement;
     const img = document.getElementById('new_upload_img') as HTMLInputElement;
-    // const img_div = document.getElementById('img') as HTMLInputElement;
+    const img_info = document.getElementById('img_info') as HTMLLabelElement;
+ 
+    fileUpload.click();
     fileUpload.onchange = () => {
-      // for (let index = 0; index < fileUpload.files.length; index++) {
-      //       this.file = fileUpload.files[index];
-      //       // this.files.push({ data: file, state: 'in', 
-      //       //   inProgress: false, progress: 0, canRetry: false, canCancel: true });
-      // }
-      // this.uploadFiles();
 
       img.src = URL.createObjectURL(fileUpload.files[0]);
 
@@ -62,12 +58,14 @@ export class AdminSlideComponent implements OnInit {
       this.newImg_size = (String)((fileUpload.files[0].size / (1024 * 1024)).toFixed(2)) + " MB";
       this.newImg_name = fileUpload.files[0].name;
 
+      img_info.innerHTML = "size: "+this.newImg_size+" <br>name: "+this.newImg_name+" <br>";
+
       if (this.file != null) {
         this.disable_save_btn = false;
       }
 
     };
-    fileUpload.click();
+    
 
   }
   save_item() {

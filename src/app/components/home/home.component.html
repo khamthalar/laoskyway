@@ -9,7 +9,11 @@
             <app-book-form class="form-content"></app-book-form>
         </div>
         <!--end booking form -->
-        <mdb-carousel class="carousel slide" [animation]="'slide'">
+        <div *ngIf="slide_num==1">
+            <img src="{{slide_data[0].img_path}}" width="100%">
+        </div>
+        
+        <mdb-carousel class="carousel slide" [animation]="'slide'" *ngIf="slide_num>=2">
             <mdb-carousel-item *ngFor="let item of slide_data">
                 <img class="d-block w-100" src="{{item.img_path}}" alt="Second slide">
             </mdb-carousel-item>

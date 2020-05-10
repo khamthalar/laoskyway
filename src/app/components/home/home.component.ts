@@ -10,6 +10,7 @@ import baseData from '../../../assets/json/data.json';
 })
 export class HomeComponent implements OnInit {
 
+  slide_num = 0;
   hide_popup:boolean=false;
   slide_data: {
     id: number;
@@ -36,11 +37,15 @@ export class HomeComponent implements OnInit {
         // this.slide_list = result.data;
         this.slide_data = result.data;
         // console.log(this.slide_data);
+        this.slide_num =  Object.keys(this.slide_data).length;
       } else {
+        this.slide_num = 0;
         window.alert("can not load data, error: " + result.detail);
+
         //finished
       }
     }, (err: HttpErrorResponse) => {
+      this.slide_num = 0;
       window.alert("can not load data, error code: " + err.status + " " + err.statusText);
       //finished
     }, () => {

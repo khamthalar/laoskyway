@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/dialogs/confirm-dialog/confirm-dialog.component';
 
@@ -14,6 +14,9 @@ export class WebpageAdminComponent implements OnInit {
   element: HTMLElement;
   title: string = "Slide Show";
   user_name: string = "";
+
+  user_data: any;
+
 
   menu_option: number = 1;
 
@@ -40,6 +43,7 @@ export class WebpageAdminComponent implements OnInit {
     if (sessionStorage.getItem("isLogin") == "isLogin") {
       this.isLogin = true;
       this.user_name = sessionStorage.getItem("user_name");
+      // this.check_permissions();
     } else {
       this.isLogin = false;
     }
@@ -47,6 +51,21 @@ export class WebpageAdminComponent implements OnInit {
   isLogin_status(event) {
     this.isLogin = event;
     this.user_name = sessionStorage.getItem("user_name");
+    
+  }
+  setPermission(event){
+    // module variable
+    this.user_data = JSON.parse(event);
+    const admin_setup = document.getElementById('amin-setup-module') as HTMLElement;
+
+    //check permission
+    if (event != null) {
+      if ((JSON.parse(event).permissions.admin_setup_access) == 1) {
+        admin_setup.hidden = false;
+      } else {
+        admin_setup.hidden = true;
+      }
+    }
   }
   toggle_nav() {
 
@@ -69,10 +88,12 @@ export class WebpageAdminComponent implements OnInit {
       width: '270px',
       data: { info: "Are you sure, you want to logout ?" }
     });
-    dialogRef.afterClosed().subscribe((confirm:boolean) => {
+    dialogRef.afterClosed().subscribe((confirm: boolean) => {
       if (confirm) {
         this.isLogin = false;
         sessionStorage.setItem("isLogin", "notLogin");
+        sessionStorage.setItem('user',null);
+        this.menu_option = 1;
         element.hidden = false;
       }
     });

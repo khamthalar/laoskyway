@@ -12,6 +12,7 @@ export class AdminLoginComponent implements OnInit {
 
   @Output() isLogin = new EventEmitter<boolean>();
   @Output() loading = new EventEmitter<boolean>();
+  @Output() setPermission = new EventEmitter <any>();
   username: string = "";
   password: string = "";
 
@@ -34,7 +35,8 @@ export class AdminLoginComponent implements OnInit {
           sessionStorage.setItem("user_name",result.data.name);
           this.isLogin.emit(true);
           sessionStorage.setItem("isLogin", "isLogin");
-          sessionStorage.setItem('user',result.data);
+          sessionStorage.setItem('user',JSON.stringify(result.data));
+          this.setPermission.emit(JSON.stringify(result.data));
         } else {
           this.loading.emit(false);
           window.alert(result.res);
