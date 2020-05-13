@@ -1,5 +1,5 @@
 <div class="page_admin">
-    <app-loading class="loading" [hidden]="!isLoading"></app-loading>
+    <app-loading id="loading" class="loading" hidden></app-loading>
     <app-admin-login class="login" (setPermission)="setPermission($event)" (loading)="setloading($event)" (isLogin)="isLogin_status($event)" [hidden]="isLogin" id="login_page"></app-admin-login>
 
     <div class="admin-container">

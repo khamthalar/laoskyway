@@ -158,6 +158,40 @@ form .airportSelection .arrivalAirport .react-autosuggest__container .react-auto
 // end airport section
 
 
+.mat-typography .container .flight-search-widget .ias-search-widget
+form .airportSelection .departureAirport{
+    margin-bottom: -17px;
+    margin-top: 30px;
+}
+.mat-typography .container .flight-search-widget .ias-search-widget
+form .formSubmit>button{
+    margin-bottom: 30px;
+}
+.mat-typography .container .flight-search-widget .ias-search-widget{
+    padding-top: 15px;
+}
+
+.mat-typography .container .flight-search-widget .ias-search-widget
+form .airportSelection .swapAirports>a{
+    background-color: white !important;
+    // padding:18px 13px 16px 13px;
+    color:rgba($color: #000000, $alpha: 0);
+    width: 55px;
+    height: 55px;
+    font-weight: bold;
+    border-radius: 50px;
+    border: 3px solid #FF2500;
+    background-image: url('assets/svg/refresh.svg');
+    background-repeat: no-repeat;
+    margin-bottom: -17px;
+}
+.mat-typography .container .flight-search-widget .ias-search-widget
+form .airportSelection .swapAirports{
+    padding-top: 0 !important;
+}
+
+
+
 @media(max-width:1000px){
     .flight-search-widget{
         margin: auto;

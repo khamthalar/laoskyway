@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-webpage-admin',
   templateUrl: './webpage-admin.component.html',
   styleUrls: ['./webpage-admin.component.scss']
@@ -21,7 +21,6 @@ export class WebpageAdminComponent implements OnInit {
   menu_option: number = 1;
 
   isLogin: boolean;
-  isLoading: boolean = false;
 
   toggle_ico: string = '<img src="/assets/svg/back.svg" width="20" height="25">';
 
@@ -100,7 +99,9 @@ export class WebpageAdminComponent implements OnInit {
   }
 
   setloading(status: boolean) {
-    this.isLoading = status;
+    const loading = document.getElementById('loading') as HTMLElement;
+    loading.hidden = !status;
+    // this.isLoading = status;
   }
 
 }
