@@ -29,13 +29,14 @@ export class FlightScheduleComponent implements OnInit {
   loaddata(depart: string, arrival: string) {
     this.hide_loading = false;
     const today = new Date();
-    let earliestDate = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate() + ' 00:00:00Z';
+    let thisMonth = today.getMonth() + 1;
+    let earliestDate = today.getFullYear() + '-' + thisMonth + '-' + today.getDate() + ' 00:00:00Z';
     let latestDate = "";
     if (today.getMonth() == 12) {
       let year = today.getFullYear() + 1;
       latestDate = year + '-1' + today.getDate() + ' 23:59:59Z';
     } else {
-      let month = today.getMonth() + 1;
+      let month = today.getMonth() + 2;
       latestDate = today.getFullYear() + '-' + month + '-' + today.getDate() + ' 23:59:59Z';
     }
 
