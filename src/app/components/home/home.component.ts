@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import baseData from '../../../assets/json/data.json';
+import language from '../../../assets/json/language.json';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   slide_num = 0;
   hide_popup:boolean=false;
+  language_data:any;
   slide_data: {
     id: number;
     img_name: string;
@@ -28,6 +30,11 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    // if(sessionStorage.getItem('language')=='eng'){
+    //   this.language_data = language.en;
+    // }else{
+    //   this.language_data = this.language_data.la;
+    // }
     this.load_data();
   }
 
@@ -55,6 +62,10 @@ export class HomeComponent implements OnInit {
   close_popup(event) {
     this.hide_popup = event;
     console.log(event);
+  }
+
+  change_language(value:string){
+    console.log(value);
   }
 
 }

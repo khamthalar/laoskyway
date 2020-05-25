@@ -8,11 +8,33 @@ import language from '../assets/json/language.json';
 })
 export class AppComponent implements OnInit{
   title = 'laoskyway';
-  isEnglish:boolean = true;
+  isEnglish:boolean;
+  language_data:any;
   
   ngOnInit(): void {
-    this.isEnglish = true; 
-    console.log(language);
+    if(sessionStorage.getItem('language')==undefined || sessionStorage.getItem('language')=='eng'){
+      this.isEnglish = true;
+      this.language_data = language.en;
+    }else if(sessionStorage.getItem('language')=='la'){
+      this.isEnglish = false;
+      this.language_data = language.la;
+    }
+    if(sessionStorage.getItem('visitor')==undefined){
+      sessionStorage.setItem('visitor','isOld');
+    }else{
+    }
+    // console.log(language);
+  }
+  change_language(value:string){
+    if(value == "eng"){
+      sessionStorage.setItem('language','eng');
+      this.isEnglish = true;
+      this.language_data = language.en;
+    }else{
+      sessionStorage.setItem('language','la');
+      this.isEnglish = false;
+      this.language_data = language.la;
+    }
   }
   
 }

@@ -7,7 +7,8 @@
             Arrival
         </button>
         <mat-menu #beforeMenu="matMenu" xPosition="before">
-            <button class="btn-route-menu" mat-menu-item *ngFor="let item of cityPairs" (click)="loaddata(item.departure.airport.code,item.arrival.airport.code)">
+            <button class="btn-route-menu" mat-menu-item *ngFor="let item of cityPairs"
+                (click)="loaddata(item.departure.airport.code,item.arrival.airport.code)">
                 {{item.departure.airport.name}}
                 <img src="/assets/svg/airplane_ico.svg" width="30">
                 {{item.arrival.airport.name}}
@@ -16,38 +17,57 @@
         <div class="loader" [hidden]="hide_loading"></div>
     </div>
     <div class="body">
-        <div class="schedule" *ngFor="let flight of schedule">
-            <div class="title item">
-                {{flight.aircraftModel.name}}
-                <img src="/assets/svg/airplane_ico.svg" width="40">
-                {{flight.airlineCode.name}} {{flight.flightNumber}}
-            </div>
-            <div class="depart item">
-                <img src="/assets/svg/airplane_departure.svg" width="80">
-                <div class="depart-info">
-                    <div class="depart-title">Departure</div>
-                    <div class="depart-value">{{flight.departure.airport.name}}</div>
-                    <div class="depart-time"><img src="/assets/svg/watch.svg" width="15"> {{flight.legs[0].departure.localScheduledShortTime}}</div>
+        <div *ngFor="let flight of schedule">
+            <div class="schedule" *ngIf="flight.status.cancelled==false">
+                <div class="title item">
+                    {{flight.aircraftModel.name}}
+                    <img src="/assets/svg/airplane_ico.svg" width="40">
+                    {{flight.airlineCode.name}} {{flight.flightNumber}}
                 </div>
-            </div>
-            <div class="arrival item">
-                <div class="arrival-info">
-                    <div class="arrival-title">Arrival</div>
-                    <div class="arrival-value">{{flight.arrival.airport.name}}</div>
-                    <div class="arrival-time"><img src="/assets/svg/watch.svg" width="15"> {{flight.legs[0].arrival.localScheduledShortTime}}</div>
+                <div class="depart item">
+                    <img src="/assets/svg/airplane_departure.svg" width="80">
+                    <div class="depart-info">
+                        <div class="depart-title">Departure</div>
+                        <div class="depart-value">{{flight.departure.airport.name}}</div>
+                        <div class="depart-time"><img src="/assets/svg/watch.svg" width="15">
+                            {{flight.legs[0].departure.localScheduledShortTime}}</div>
+                    </div>
                 </div>
-                <img src="/assets/svg/airplane_arrival.svg" width="80">
+                <div class="arrival item">
+                    <div class="arrival-info">
+                        <div class="arrival-title">Arrival</div>
+                        <div class="arrival-value">{{flight.arrival.airport.name}}</div>
+                        <div class="arrival-time"><img src="/assets/svg/watch.svg" width="15">
+                            {{flight.legs[0].arrival.localScheduledShortTime}}</div>
+                    </div>
+                    <img src="/assets/svg/airplane_arrival.svg" width="80">
+                </div>
+                <div class="frequency item">
+                    <div class="sun day"><img src="/assets/svg/sun_active.svg" width="40"
+                            *ngIf="flight.localFrequency.sunday"><img src="/assets/svg/sun.svg" width="40"
+                            *ngIf="!flight.localFrequency.sunday"></div>
+                    <div class="mon day"><img src="/assets/svg/mon_active.svg" width="40"
+                            *ngIf="flight.localFrequency.monday"><img src="/assets/svg/mon.svg" width="40"
+                            *ngIf="!flight.localFrequency.monday"></div>
+                    <div class="tue day"><img src="/assets/svg/tue_active.svg" width="40"
+                            *ngIf="flight.localFrequency.tuesday"><img src="/assets/svg/tue.svg" width="40"
+                            *ngIf="!flight.localFrequency.tuesday"></div>
+                    <div class="wed day"><img src="/assets/svg/wed_active.svg" width="40"
+                            *ngIf="flight.localFrequency.wednesday"><img src="/assets/svg/wed.svg" width="40"
+                            *ngIf="!flight.localFrequency.wednesday"></div>
+                    <div class="thu day"><img src="/assets/svg/thu_active.svg" width="40"
+                            *ngIf="flight.localFrequency.thursday"><img src="/assets/svg/thu.svg" width="40"
+                            *ngIf="!flight.localFrequency.thursday"></div>
+                    <div class="fri day"><img src="/assets/svg/fri_active.svg" width="40"
+                            *ngIf="flight.localFrequency.friday"><img src="/assets/svg/fri.svg" width="40"
+                            *ngIf="!flight.localFrequency.friday"></div>
+                    <div class="sat day"><img src="/assets/svg/sat_active.svg" width="40"
+                            *ngIf="flight.localFrequency.saturday"><img src="/assets/svg/sat.svg" width="40"
+                            *ngIf="!flight.localFrequency.saturday"></div>
+                </div>
+                <div class="valid item">(valid: {{flight.localValidFrom | date:'dd MMM yyyy'}} -
+                    {{flight.localValidTo | date:'dd MMM yyyy'}} )</div>
             </div>
-            <div class="frequency item">
-                <div class="sun day"><img src="/assets/svg/sun_active.svg" width="40" *ngIf="flight.localFrequency.sunday"><img src="/assets/svg/sun.svg" width="40" *ngIf="!flight.localFrequency.sunday"></div>
-                <div class="mon day"><img src="/assets/svg/mon_active.svg" width="40" *ngIf="flight.localFrequency.monday"><img src="/assets/svg/mon.svg" width="40" *ngIf="!flight.localFrequency.monday"></div>
-                <div class="tue day"><img src="/assets/svg/tue_active.svg" width="40" *ngIf="flight.localFrequency.tuesday"><img src="/assets/svg/tue.svg" width="40" *ngIf="!flight.localFrequency.tuesday"></div>
-                <div class="wed day"><img src="/assets/svg/wed_active.svg" width="40" *ngIf="flight.localFrequency.wednesday"><img src="/assets/svg/wed.svg" width="40" *ngIf="!flight.localFrequency.wednesday"></div>
-                <div class="thu day"><img src="/assets/svg/thu_active.svg" width="40" *ngIf="flight.localFrequency.thursday"><img src="/assets/svg/thu.svg" width="40" *ngIf="!flight.localFrequency.thursday"></div>
-                <div class="fri day"><img src="/assets/svg/fri_active.svg" width="40" *ngIf="flight.localFrequency.friday"><img src="/assets/svg/fri.svg" width="40" *ngIf="!flight.localFrequency.friday"></div>
-                <div class="sat day"><img src="/assets/svg/sat_active.svg" width="40" *ngIf="flight.localFrequency.saturday"><img src="/assets/svg/sat.svg" width="40" *ngIf="!flight.localFrequency.saturday"></div>
-            </div>
-            <div class="valid item">(valid: {{flight.localValidFrom | date:'dd MMM yyyy'}} - {{flight.localValidTo | date:'dd MMM yyyy'}} )</div>
         </div>
         <div class="guide" [hidden]="!show_guide">
             <div class="splash" [hidden]="!show_bodyload">

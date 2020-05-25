@@ -4,18 +4,21 @@
       <a class="check-mail-btn agent-login" href="https://book.laoskyway.com/Sitelogin.aspx" target="_blank">
         <button class="btn-agent"
           mat-button style="color: black;">
-          <img src="assets/svg/officer.svg" width="30"> Agent Login</button></a>
+          <img src="assets/svg/officer.svg" width="30"> {{language_data.agent_login}}</button></a>
       <a class="check-mail-btn" href="https://sgssr1.supercp.com:2096" target="_blank">
         <button mat-button class="btn-checkmail"
           style="color: black;">
-          <img src="assets/svg/email.svg" width="30"> Check Mail</button></a>
+          <img src="assets/svg/email.svg" width="30"> {{language_data.check_mail}}</button></a>
       <button class="btn-language" mat-button [matMenuTriggerFor]="beforeMenu">
-        <span *ngIf="isEnglish"><img src="assets/svg/eng.svg" width="30"> English</span>
-        <span *ngIf="!isEnglish"><img src="assets/svg/laos.svg" width="30"> Lao</span>
+        <span *ngIf="isEnglish"><img src="assets/svg/eng.svg" width="30"> {{language_data.english}}</span>
+        <span *ngIf="!isEnglish"><img src="assets/svg/laos.svg" width="30"> {{language_data.lao}}</span>
       </button>
       <mat-menu #beforeMenu="matMenu" xPosition="before">
-        <button class="btn-language-menu" mat-menu-item>
-          <img src="assets/svg/laos.svg" width="30"> Lao
+        <button class="btn-language-menu" mat-menu-item *ngIf="isEnglish" (click)="change_language('la')">
+          <img src="assets/svg/laos.svg" width="30"> {{language_data.lao}}
+        </button>
+        <button class="btn-language-menu" mat-menu-item *ngIf="!isEnglish" (click)="change_language('eng')">
+          <img src="assets/svg/eng.svg" width="30"> {{language_data.english}}
         </button>
       </mat-menu>
     </div>
@@ -42,75 +45,70 @@
             <li class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
                 mdbWavesEffect>
-                SERVICES<span class="caret"></span>
+                {{language_data.services}}<span class="caret"></span>
               </a>
               <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">SCENIC FLIGHT</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">CHARTER FLIGHT</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/route_map">AIRLINE (ROUTE MAP)</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.scenic_flight}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.charter_flight}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/route_map">{{language_data.airline_route_map}}</a>
                 <a class="dropdown-item waves-light" mdbWavesEffect href="https://www.laoskywayhotel.com/XKH/"
-                  target="_blank">LAOSKYWAY
-                  HOTEL XKH</a>
+                  target="_blank">{{language_data.laoskyway_xiengkhuang_hotel}}</a>
                 <a class="dropdown-item waves-light" mdbWavesEffect href="http://laoskywayhotel.com/"
-                  target="_blank">LAOSKYWAY HOTEL
-                  VTE</a>
+                  target="_blank">{{language_data.laoskyway_vientiane_hotel}}</a>
                 <a class="dropdown-item waves-light" mdbWavesEffect href="https://laoskywaytravel.com/"
-                  target="_blank">LAOSKYWAY
-                  TRAVEL</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/cargo_check">CARGO TRACKING</a>
+                  target="_blank">{{language_data.laoskyway_travel}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/cargo_check">{{language_data.cargo_tracking}}</a>
               </div>
             </li>
             <li class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
                 mdbWavesEffect>
-                SKY CARD<span class="caret"></span>
+                {{language_data.sky_card}}<span class="caret"></span>
               </a>
               <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                <a class="dropdown-item waves-light" mdbWavesEffect href="#">SKY CARD PARTNER</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#">{{language_data.sky_card_partner}}</a>
                 <a class="dropdown-item waves-light" mdbWavesEffect
-                  href="https://book.laoskyway.com/UserProfileRegistration.aspx?lang=en&sesid=" target="_blank">SKY CARD
-                  REGISTER</a>
+                  href="https://book.laoskyway.com/UserProfileRegistration.aspx?lang=en&sesid=" target="_blank">{{language_data.sky_card_register}}</a>
               </div>
             </li>
             <li class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
                 mdbWavesEffect>
-                DESTINATIONS<span class="caret"></span>
+                {{language_data.destinations}}<span class="caret"></span>
               </a>
               <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">VIENTIANE</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/luangprabang_des">LAUNGPRABANG</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/bokeo_des">BORKEO</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/oudomxay_des">OUDOMXAY</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/luangnamtha_des">LUANGNAMTHA</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">HOUAPHAN</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.vientiane}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/luangprabang_des">{{language_data.luangprabang}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/bokeo_des">{{language_data.borkeo}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/oudomxay_des">{{language_data.oudomxay}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/luangnamtha_des">{{language_data.luangnamtha}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.houphan}}</a>
               </div>
             </li>
             <li class="nav-item">
               <a class="nav-link waves-light" mdbWavesEffect href="/flight_schedule">
-                FLIGHTS CHEDULE
+                {{language_data.flight_schedule}}
               </a>
             </li>
             <li class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
                 mdbWavesEffect>
-                ABOUT US<span class="caret"></span>
+                {{language_data.about_us}}<span class="caret"></span>
               </a>
               <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/about-us-laoskyway">LAOSKYWAY</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/org_chart">ORGANIZATION CHART</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">GENERAL TERMS AND
-                  CONDITION</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/about-us-FleetInfo">FLEET INFOMATION</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">VIDEOS</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">NEWS</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/contact_us">CONTACT US</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">ACTIVITIES & PHOTO</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/about-us-laoskyway">{{language_data.laoskyway}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/org_chart">{{language_data.organization_chart}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.general_terms_and_conditions}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/about-us-FleetInfo">{{language_data.fleet_informations}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.videos}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.news}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/contact_us">{{language_data.contact_us}}</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.acivities_and_photo}}</a>
               </div>
             </li>
             <li class="nav-item">
               <a class="nav-link waves-light" mdbWavesEffect href="/feedback">
-                FEED BACK
+                {{language_data.feed_back}}
               </a>
             </li>
 
