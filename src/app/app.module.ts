@@ -37,6 +37,7 @@ import { FlightScheduleComponent } from './components/flight-schedule/flight-sch
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
 import { AdminSetupComponent } from './components/admin-setup/admin-setup.component';
 import { AdminNewuserComponent } from './dialogs/admin-newuser/admin-newuser.component';
+import { EventEmitterService } from './services/event-emitter.service';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,7 @@ import { AdminNewuserComponent } from './dialogs/admin-newuser/admin-newuser.com
     })
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [EventEmitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

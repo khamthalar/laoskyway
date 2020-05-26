@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import baseData from '../../../assets/json/data.json';
 import language from '../../../assets/json/language.json';
+import { EventEmitterService } from 'src/app/services/event-emitter.service';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   slide_num = 0;
   hide_popup:boolean=false;
   language_data:any;
+  language_:string;
   slide_data: {
     id: number;
     img_name: string;
@@ -27,15 +29,32 @@ export class HomeComponent implements OnInit {
     upload_file: File;
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private changeLanguage:EventEmitterService) { }
 
   ngOnInit(): void {
-    // if(sessionStorage.getItem('language')=='eng'){
-    //   this.language_data = language.en;
-    // }else{
-    //   this.language_data = this.language_data.la;
-    // }
+    if(sessionStorage.getItem('language')==undefined || sessionStorage.getItem('language')=='eng'){
+      this.language_data = language.en;
+      this.language_ = "en";
+    }else{
+      this.language_data = language.la;
+      this.language_ = "la";
+    }
+    if (this.changeLanguage.subsVar==undefined) {    
+      this.changeLanguage.subsVar = this.changeLanguage.    
+      invokeChangelanguage.subscribe((data:string) => {    
+        this.language_change(data);    
+      });    
+    }
     this.load_data();
+  }
+  language_change(data:string){
+    if(data=="eng"){
+      this.language_data = language.en;
+      this.language_ = "en";
+    }else{
+      this.language_data = language.la;
+      this.language_ = "la";
+    }
   }
 
   load_data() {

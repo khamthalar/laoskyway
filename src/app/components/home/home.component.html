@@ -23,8 +23,8 @@
 <div class="home-content">
     <div class="service-content">
         <div class="service-content-header">
-            <div class="service-content-header-label">
-                SERVICES
+            <div class="service-content-header-label" [ngClass]="{lao: language_=='la'}">
+                {{language_data.services}}
             </div>
             <div class="service-content-header-line"></div>
         </div>
@@ -33,28 +33,28 @@
                 <a href="/on-construction" id="airline" class="">
                     <img src="assets/imgs/Service001.png" class="img">
                 </a>
-                <div style="padding-bottom:15px;"><span style="font-size: 20px; padding-top: 10px;">AIRLINE</span></div>
+                <div style="padding-bottom:15px;"><span [ngClass]="{lao: language_=='la'}" style="font-size: 20px; padding-top: 10px;">{{language_data.airline}}</span></div>
                     
             </div>
             <div class="service">
                 <a href="/on-construction" id="charter_flight">
                     <img src="assets/imgs/Service003.png" class="img">
                 </a>
-                <div style="padding-bottom:15px;"><span style="font-size: 20px; padding-top: 10px;">CHARTER FLIGHT</span></div>
+                <div style="padding-bottom:15px;"><span [ngClass]="{lao: language_=='la'}" style="font-size: 20px; padding-top: 10px;">{{language_data.charter_flight}}</span></div>
                  
             </div>
             <div class="service">
                 <a href="/on-construction" id="scenic_flight">
                     <img src="assets/imgs/Service004.png" class="img">
                 </a>
-                <div style="padding-bottom:15px;"><span style="font-size: 20px; padding-top: 10px;">SCENIC FLIGHT</span></div>
+                <div style="padding-bottom:15px;"><span [ngClass]="{lao: language_=='la'}" style="font-size: 20px; padding-top: 10px;">{{language_data.scenic_flight}}</span></div>
                 
             </div>
             <div class="service">
                 <a href="https://www.laoskywayhotel.com" id="lsw_hotel">
                     <img src="assets/imgs/Service005.png" class="img">
                 </a>
-                <div style="padding-bottom:15px;"><span style="font-size: 20px; padding-top: 10px;">LAOSKYWAY HOTEL</span></div>
+                <div style="padding-bottom:15px;"><span [ngClass]="{lao: language_=='la'}" style="font-size: 20px; padding-top: 10px;">{{language_data.laoskyway_hotel}}</span></div>
                  
             </div>
         </div>
@@ -68,9 +68,15 @@
             </div>
             <div class="app-store-section-content">
                 <div class="app-store-section-content-label">
-                    <span style="color: rgb(207, 60, 60);">LAO </span><span style="color: blue;">SKYWAY APPLICATION</span>   
+                    <span *ngIf="language_=='en'">
+                        <span style="color: rgb(207, 60, 60);">LAO </span><span style="color: blue;">SKYWAY APPLICATION</span>
+                    </span>
+                    <span *ngIf="language_=='la'">
+                        <span class="lao" style="color: rgb(207, 60, 60);">ແອັບພລິເຄຊັນ </span><span class="lao" style="color: blue;">ຂອງລາວສະກາຍເວ</span>
+                    </span>
+                       
                 </div>
-                <div style="text-align: left; font-weight: bold; color: chocolate;">DOWNLOAD HERE</div>
+                <div style="text-align: left; font-weight: bold; color: chocolate;" [ngClass]="{lao: language_=='la'}">{{language_data.download_here}}</div>
                 <div class="app-store-items">
                     <a href="#">
                         <img class="sub-logo" src="assets/imgs/app-store.png" width="150">

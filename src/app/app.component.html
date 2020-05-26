@@ -2,22 +2,22 @@
   <div class="header-top">
     <div class="header-top-content">
       <a class="check-mail-btn agent-login" href="https://book.laoskyway.com/Sitelogin.aspx" target="_blank">
-        <button class="btn-agent"
+        <button [ngClass]="{lao: language_=='la'}" class="btn-agent"
           mat-button style="color: black;">
           <img src="assets/svg/officer.svg" width="30"> {{language_data.agent_login}}</button></a>
       <a class="check-mail-btn" href="https://sgssr1.supercp.com:2096" target="_blank">
-        <button mat-button class="btn-checkmail"
+        <button mat-button [ngClass]="{lao: language_=='la'}" class="btn-checkmail"
           style="color: black;">
           <img src="assets/svg/email.svg" width="30"> {{language_data.check_mail}}</button></a>
-      <button class="btn-language" mat-button [matMenuTriggerFor]="beforeMenu">
+      <button [ngClass]="{lao: language_=='la'}" class="btn-language" mat-button [matMenuTriggerFor]="beforeMenu">
         <span *ngIf="isEnglish"><img src="assets/svg/eng.svg" width="30"> {{language_data.english}}</span>
         <span *ngIf="!isEnglish"><img src="assets/svg/laos.svg" width="30"> {{language_data.lao}}</span>
       </button>
       <mat-menu #beforeMenu="matMenu" xPosition="before">
-        <button class="btn-language-menu" mat-menu-item *ngIf="isEnglish" (click)="change_language('la')">
+        <button [ngClass]="{lao: language_=='la'}" class="btn-language-menu" mat-menu-item *ngIf="isEnglish" (click)="change_language('la')">
           <img src="assets/svg/laos.svg" width="30"> {{language_data.lao}}
         </button>
-        <button class="btn-language-menu" mat-menu-item *ngIf="!isEnglish" (click)="change_language('eng')">
+        <button [ngClass]="{lao: language_=='la'}" class="btn-language-menu" mat-menu-item *ngIf="!isEnglish" (click)="change_language('eng')">
           <img src="assets/svg/eng.svg" width="30"> {{language_data.english}}
         </button>
       </mat-menu>
@@ -41,7 +41,7 @@
         <links>
 
           <!-- Links -->
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto" [ngClass]="{lao: language_=='la'}">
             <li class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
                 mdbWavesEffect>
@@ -106,7 +106,7 @@
                 <a class="dropdown-item waves-light" mdbWavesEffect href="/on-construction">{{language_data.acivities_and_photo}}</a>
               </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" [ngClass]="{lao: language_=='la'}">
               <a class="nav-link waves-light" mdbWavesEffect href="/feedback">
                 {{language_data.feed_back}}
               </a>
