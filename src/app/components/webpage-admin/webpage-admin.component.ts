@@ -18,7 +18,7 @@ export class WebpageAdminComponent implements OnInit {
   user_data: any;
 
 
-  menu_option: number = 1;
+  menu_option: string;
 
   isLogin: boolean;
 
@@ -39,6 +39,11 @@ export class WebpageAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("menu_item")==undefined){
+      this.menu_option = "1";
+    }else{
+      this.menu_option = sessionStorage.getItem("menu_item");
+    }
     if (sessionStorage.getItem("isLogin") == "isLogin") {
       this.isLogin = true;
       this.user_name = sessionStorage.getItem("user_name");
@@ -92,7 +97,8 @@ export class WebpageAdminComponent implements OnInit {
         this.isLogin = false;
         sessionStorage.setItem("isLogin", "notLogin");
         sessionStorage.setItem('user',null);
-        this.menu_option = 1;
+        this.menu_option = "1";
+        sessionStorage.setItem("menu_item","1");
         element.hidden = false;
       }
     });
@@ -102,6 +108,10 @@ export class WebpageAdminComponent implements OnInit {
     const loading = document.getElementById('loading') as HTMLElement;
     loading.hidden = !status;
     // this.isLoading = status;
+  }
+  menu_selected(item:string){
+    sessionStorage.setItem("menu_item",item);
+    this.menu_option = item;
   }
 
 }

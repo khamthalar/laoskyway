@@ -38,6 +38,7 @@ import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.
 import { AdminSetupComponent } from './components/admin-setup/admin-setup.component';
 import { AdminNewuserComponent } from './dialogs/admin-newuser/admin-newuser.component';
 import { EventEmitterService } from './services/event-emitter.service';
+import { AdminPopupSetupComponent } from './components/admin-popup-setup/admin-popup-setup.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { EventEmitterService } from './services/event-emitter.service';
     FlightScheduleComponent,
     ConfirmDialogComponent,
     AdminSetupComponent,
-    AdminNewuserComponent
+    AdminNewuserComponent,
+    AdminPopupSetupComponent
   ],
   imports: [
     BrowserModule,

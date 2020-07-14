@@ -14,15 +14,19 @@
 
                     <mat-divider></mat-divider>
 
-                    <a mat-list-item (click)="menu_option=1; title='Slide Show'">
+                    <a mat-list-item (click)="menu_selected('1'); title='Slide Show'">
                         <mat-icon mat-list-icon >perm_media</mat-icon>
                         <p matLine *ngIf="isExpanded">Home slide show</p>
                     </a>
-                    <a mat-list-item (click)="menu_option=2; title='Job Vacancy'">
+                    <a mat-list-item (click)="menu_selected('2'); title='Job Vacancy'">
+                        <mat-icon mat-list-icon>desktop_mac</mat-icon>
+                        <p matLine *ngIf="isExpanded">Popup Setting</p>
+                    </a>
+                    <a mat-list-item (click)="menu_selected('3'); title='Job Vacancy'">
                         <mat-icon mat-list-icon>card_travel</mat-icon>
                         <p matLine *ngIf="isExpanded">Job Vacancy</p>
                     </a>
-                    <a mat-list-item (click)="menu_option=3; title='Admin Setup'" id="amin-setup-module">
+                    <a mat-list-item (click)="menu_selected('4'); title='Admin Setup'" id="amin-setup-module">
                         <mat-icon mat-list-icon>settings</mat-icon>
                         <p matLine *ngIf="isExpanded">Admin Setup</p>
                     </a>
@@ -40,9 +44,10 @@
                 </div>
                 <div class="content-data">
                     <div class="inner-content">
-                        <app-admin-slide *ngIf="menu_option==1" (loading)="setloading($event)"></app-admin-slide>
-                        <app-admin-jobvacancy *ngIf="menu_option==2"></app-admin-jobvacancy>
-                        <app-admin-setup *ngIf="menu_option==3"></app-admin-setup>
+                        <app-admin-slide *ngIf="menu_option=='1'" (loading)="setloading($event)"></app-admin-slide>
+                        <app-admin-popup-setup *ngIf="menu_option=='2'"></app-admin-popup-setup>
+                        <app-admin-jobvacancy *ngIf="menu_option=='3'"></app-admin-jobvacancy>
+                        <app-admin-setup *ngIf="menu_option=='4'"></app-admin-setup>
                         
                     </div>
                 </div>

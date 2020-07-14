@@ -13,7 +13,7 @@ import { EventEmitterService } from 'src/app/services/event-emitter.service';
 export class HomeComponent implements OnInit {
 
   slide_num = 0;
-  hide_popup:boolean=false;
+  hide_popup:boolean=true;
   language_data:any;
   language_:string;
   slide_data: {
